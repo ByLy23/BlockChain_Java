@@ -9,6 +9,6 @@ package EDD;
  *
  * @author byron
  */
-public class Prueba {
+public class arbolAVL {
     
 }

@@ -431,6 +431,20 @@ public T eliminar(T dato) {
       public void imprimirNodo(){
             imprimirRaiz(this.raiz);
         }
+      public void imprimirNiveles(){
+          imprimirNiveles(raiz);
+      }
+      public void imprimirNiveles(Nodo raiz){
+  if(raiz!=null){
+    for (int i = 0; i < raiz.ramasTamanio; i++) {
+        imprimirNiveles(raiz.ramas[i]);
+        System.out.print("\n");
+    }
+    for (int i = 0; i < raiz.clavesTamanio; i++) {
+      System.out.print(raiz.claves[i]);
+    }
+  }
+}
         public void imprimirRaiz(Nodo raiz){
             StringBuilder b= new StringBuilder();
             if(raiz!=null){
