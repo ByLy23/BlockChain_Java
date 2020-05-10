@@ -80,6 +80,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Agregar Usuarios"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="pass">
     </Component>
@@ -92,7 +95,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="User"/>
+        <Property name="text" type="java.lang.String" value="Carnet"/>
       </Properties>
     </Component>
   </SubComponents>

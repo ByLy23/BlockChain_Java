@@ -10,6 +10,7 @@ import EDD.arbolAVL;
 import EDD.tablaHash;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,13 +21,15 @@ public class Inicio extends javax.swing.JFrame {
      * Creates new form Inicio
      */
     arbolAVL arbolito;
+    tablaHash tablita;
     ArbolB<Integer> bTree;
     public Inicio() throws Exception {
         arbolito= new arbolAVL();
         bTree= new ArbolB(2);
+        tablita= new tablaHash();
         initComponents();
         this.setLocationRelativeTo(null);
-        arbolito.insertar(13);
+        arbolito.insertar(13);//isbn y a la par el libro
         arbolito.insertar(10);
         arbolito.insertar(99);
         arbolito.insertar(1);
@@ -78,10 +81,15 @@ public class Inicio extends javax.swing.JFrame {
         });
 
         jButton3.setText("Agregar Usuarios");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Password");
 
-        jLabel2.setText("User");
+        jLabel2.setText("Carnet");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -125,17 +133,29 @@ public class Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-if(!user.getText().equals("") && !pass.getText().equals("")){
-    tablaHash tablita= new tablaHash();
+if(user.getText().equals("") || pass.getText().equals("")){
+    JOptionPane.showMessageDialog(null, "No hay datos suficientes");
+}else{
     try {
-        tablita.generarHash(pass.getText());
-        //recorrer Hash, si existe ingresar sino existe eliminar
+        boolean bandera= tablita.buscarCredenciales(user.getText(), pass.getText());
+        if(bandera){
+            this.setVisible(false);
+            new Menu().setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null, "No hay Usuario valido");
+        }
     } catch (Exception ex) {
         Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
     }
+    
 }
     // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+this.setVisible(false);
+new Usuarios().setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
