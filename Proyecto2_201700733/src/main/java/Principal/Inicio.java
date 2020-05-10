@@ -5,6 +5,8 @@
  */
 package Principal;
 
+import EDD.ArbolB;
+import EDD.arbolAVL;
 import EDD.tablaHash;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,13 +16,40 @@ import java.util.logging.Logger;
  * @author byron
  */
 public class Inicio extends javax.swing.JFrame {
-
-    /**
+  /**
      * Creates new form Inicio
      */
-    public Inicio() {
+    arbolAVL arbolito;
+    ArbolB<Integer> bTree;
+    public Inicio() throws Exception {
+        arbolito= new arbolAVL();
+        bTree= new ArbolB(2);
         initComponents();
         this.setLocationRelativeTo(null);
+        arbolito.insertar(13);
+        arbolito.insertar(10);
+        arbolito.insertar(99);
+        arbolito.insertar(1);
+        arbolito.insertar(78);
+        arbolito.insertar(90);
+        arbolito.insertar(12);
+        bTree.insertar(13);
+        bTree.insertar(23);
+        bTree.insertar(35);
+        bTree.insertar(56);
+        bTree.insertar(81);
+        bTree.insertar(1);
+        bTree.insertar(100);
+        bTree.insertar(26);
+        bTree.insertar(48);
+        bTree.insertar(3);
+        bTree.insertar(2);
+        bTree.insertar(8);
+        bTree.insertar(59);
+        bTree.insertar(143);
+        bTree.insertar(169);
+        bTree.imprimirNodo();
+        arbolito.colocarGrafo();
     }
 
     /**
@@ -134,11 +163,20 @@ if(!user.getText().equals("") && !pass.getText().equals("")){
             java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Inicio().setVisible(true);
+                try {
+                    
+                    
+                    
+                    new Inicio().setVisible(true);
+                    
+                    
+                    
+                } catch (Exception ex) {
+                    Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

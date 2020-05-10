@@ -23,4 +23,5 @@ public class tablaHash {
        else
             System.out.println("no es el mismo");
     }
+    
 }
