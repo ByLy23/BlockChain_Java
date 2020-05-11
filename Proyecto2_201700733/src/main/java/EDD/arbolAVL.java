@@ -19,16 +19,27 @@ public class arbolAVL {
       private NodoAVL izquierdo;
     private NodoAVL derecho;
     private int altura;
-    private int dato;
+    private String dato;
+
+        public ArbolB getArbolito() {
+            return arbolito;
+        }
+
+        public void setArbolito(ArbolB arbolito) {
+            this.arbolito = arbolito;
+        }
+    private ArbolB arbolito;
 
     public NodoAVL(){
         izquierdo=null;
         derecho=null;
-        dato=0;
+        dato="";
+        arbolito=null;
         altura=0;
     }
-    public NodoAVL(int dato){
+    public NodoAVL(String dato, ArbolB arbolito){
         this.dato=dato;
+        this.arbolito=arbolito;
         derecho=null;
         izquierdo=null;
         altura=0;
@@ -58,14 +69,14 @@ public class arbolAVL {
         this.altura = altura;
     }
 
-    public int getDato() {
+    public String getDato() {
         return dato;
     }
 
-    public void setDato(int dato) {
+    public void setDato(String dato) {
         this.dato = dato;
     }
-};
+    };
     NodoAVL raiz;
     public arbolAVL(){
         raiz=null;
@@ -75,8 +86,8 @@ public class arbolAVL {
         return raiz;
     }
    
-    public void insertar(int dato) throws Exception{
-        raiz= insertarNodo(raiz,dato);
+    public void insertar(String dato, ArbolB arbolito) throws Exception{
+        raiz= insertarNodo(raiz,dato,arbolito);
     }
     private int alturaMaxima(int a, int b){
        return  (a>b) ? a : b;
@@ -129,19 +140,19 @@ public class arbolAVL {
         return n1;
     }
     
-    private NodoAVL insertarNodo(NodoAVL raiz, int dato) throws Exception{
+    private NodoAVL insertarNodo(NodoAVL raiz, String dato, ArbolB arbolito) throws Exception{
         if(raiz==null){
-           raiz= new NodoAVL(dato);
+           raiz= new NodoAVL(dato,arbolito);
         }
-        else if(dato<raiz.getDato()){
+        else if(dato.compareTo(raiz.getDato())<0){
             NodoAVL izquierdo;
-            izquierdo= insertarNodo(raiz.getIzquierdo(),dato);
+            izquierdo= insertarNodo(raiz.getIzquierdo(),dato,arbolito);
             raiz.setIzquierdo(izquierdo);
             //insertar izquierdo
         }
-        else if(dato> raiz.getDato()){
+        else if(dato.compareTo(raiz.getDato())>0){
             NodoAVL derecho;
-            derecho= insertarNodo(raiz.getDerecho(),dato);
+            derecho= insertarNodo(raiz.getDerecho(),dato,arbolito);
             raiz.setDerecho(derecho);
             //insertarDerecho
         }
@@ -173,23 +184,21 @@ public class arbolAVL {
     String inicio="digraph \"GraficaAVL\"{";
     String enlaces="";
     String cuerpo="";
-    private void graficar(NodoAVL nodo,int index){
+    private void graficar(NodoAVL nodo){
         if(nodo!=null){
-            graficar(nodo.getIzquierdo(), index);
-            cuerpo+= "nodo"+nodo.getDato()+" [label= \" "+nodo.getDato()+"\n Altura: "+nodo.getAltura()+"\"];";
-            graficar(nodo.getDerecho(), index);
-             if(nodo.getDato()==index)
-               cuerpo+="nodo"+nodo.getDato()+" [style=filled, fillcolor=pink, label= \" "+nodo.getDato()+"\n Altura: "+nodo.getAltura()+"\"];";
+            graficar(nodo.getIzquierdo());
+            cuerpo+= "nodo"+nodo.hashCode()+" [label= \" "+nodo.getDato()+"\n Altura: "+nodo.getAltura()+"\"];";
+            graficar(nodo.getDerecho());
         }
     }
     String fingrafo="";
     private void graficar2(NodoAVL nodo){
         if(nodo!=null){
      if(nodo.getIzquierdo()!=null){
-            enlaces+="nodo"+nodo.getDato()+"->"+"nodo"+nodo.getIzquierdo().getDato()+"\n";
+            enlaces+="nodo"+nodo.hashCode()+"->"+"nodo"+nodo.getIzquierdo().hashCode()+"\n";
         }
         if(nodo.getDerecho()!=null){
-            enlaces+="nodo"+nodo.getDato()+"->"+"nodo"+nodo.getDerecho().getDato()+"\n";
+            enlaces+="nodo"+nodo.hashCode()+"->"+"nodo"+nodo.getDerecho().hashCode()+"\n";
         }
         graficar2(nodo.getIzquierdo());
         graficar2(nodo.getDerecho());
@@ -209,20 +218,20 @@ public class arbolAVL {
     private void actualizarNodo(NodoAVL raiz, NodoAVL temp){
         raiz.setDato(temp.getDato());
     }
-    public NodoAVL borrarNodo(NodoAVL raiz, int dato)throws Exception{
+    public NodoAVL borrarNodo(NodoAVL raiz, String dato, ArbolB arbolito)throws Exception{
         
         if(raiz==null){
             return raiz;
         }
-        else if(dato<raiz.getDato()){
+        else if(dato.compareTo(raiz.getDato())<0){
             NodoAVL izquierdo;
-            izquierdo= borrarNodo(raiz.getIzquierdo(),dato);
+            izquierdo= borrarNodo(raiz.getIzquierdo(),dato,arbolito);
             raiz.setIzquierdo(izquierdo);
             //insertar izquierdo
         }
-        else if(dato> raiz.getDato()){
+        else if(dato.compareTo(raiz.getDato())>0){
             NodoAVL derecho;
-            derecho=borrarNodo(raiz.getDerecho(),dato);
+            derecho=borrarNodo(raiz.getDerecho(),dato,arbolito);
             raiz.setDerecho(derecho);
             //insertarDerecho
         }
@@ -278,14 +287,13 @@ public class arbolAVL {
             }      
         return raiz;
     }
-    public void eliminar(int dato) throws Exception{
-        raiz= borrarNodo(raiz,dato);
+    public void eliminar(String dato, ArbolB arbolito) throws Exception{
+        raiz= borrarNodo(raiz,dato, arbolito);
     }
     public void inOrden(NodoAVL raiz, javax.swing.JLabel imagen) throws Exception{
         if (raiz!=null) {
             inOrden(raiz.getIzquierdo(),imagen);
             System.out.print(raiz.getDato()+", ");
-            colocarIn(imagen,raiz);
             recorrido+=raiz.getDato()+",";
             inOrden(raiz.getDerecho(),imagen);
         }
@@ -293,7 +301,6 @@ public class arbolAVL {
     public void preOrden(NodoAVL raiz, javax.swing.JLabel imagen) throws Exception{
         if (raiz!=null) {
             System.out.print(raiz.getDato()+", ");
-            colocarPre(imagen,raiz);
             recorrido+=raiz.getDato()+",";
             preOrden(raiz.getIzquierdo(),imagen);
             preOrden(raiz.getDerecho(),imagen);
@@ -313,7 +320,6 @@ public class arbolAVL {
             postOrden(raiz.getIzquierdo(),imagen);
             postOrden(raiz.getDerecho(),imagen);
             System.out.print(raiz.getDato()+", ");
-            colocarpost(imagen,raiz);
             recorrido+=raiz.getDato()+",";
         }
     }
@@ -322,7 +328,7 @@ public class arbolAVL {
             fingrafo="";
             cuerpo="";
             enlaces="";
-            graficar(getRaiz(),getRaiz().getDato());
+            graficar(getRaiz());
             graficar2(getRaiz());
            fingrafo= inicio+" "+cuerpo+" "+enlaces+" }";
             FileWriter file= new FileWriter("avlTrees.dot");
@@ -334,119 +340,7 @@ public class arbolAVL {
             rt.exec(comando);
             System.out.println(fingrafo);
         }
-
-    public int getCons() {
-        return cons;
-    }
-
-    public void setCons(int cons) {
-        this.cons = cons;
-    }
-
-    public int getCons1() {
-        return cons1;
-    }
-
-    public void setCons1(int cons1) {
-        this.cons1 = cons1;
-    }
-
-    public int getCons2() {
-        return cons2;
-    }
-
-    public void setCons2(int cons2) {
-        this.cons2 = cons2;
-    }
+         String recorrido="";
         
-        int cons=0;
-        public void colocarIn(javax.swing.JLabel img, NodoAVL nod) throws IOException, InterruptedException{
-            fingrafo="";
-            cuerpo="";
-            enlaces="";
-            graficar(getRaiz(),nod.getDato());
-            graficar2(getRaiz());
-           fingrafo= inicio+" "+cuerpo+" "+enlaces+" }";
-            FileWriter file= new FileWriter("avlTrees.dot");
-            PrintWriter impresion=new PrintWriter(file);
-            impresion.println(fingrafo);
-            file.close();
-            String comando="dot -Tpng avlTrees.dot -o avlTreesin"+cons+".png";
-            Runtime rt= Runtime.getRuntime();
-            rt.exec(comando);
-            Thread.sleep(500);
-             if(cons==0){
-            img.setIcon(new ImageIcon("avlTreesin0.png"));
-            img.revalidate();
-            img.repaint();
-            }
-            else{
-            img.setIcon(new ImageIcon("avlTreesin"+cons+".png"));
-            img.revalidate();
-            img.repaint();
-            }
-            cons++;
-            System.out.println(fingrafo);
-        }
-        String recorrido="";
-          int cons1=0;
-        public void colocarPre(javax.swing.JLabel img, NodoAVL nod) throws IOException, InterruptedException{
-            fingrafo="";
-            cuerpo="";
-            enlaces="";
-            graficar(getRaiz(),nod.getDato());
-            graficar2(getRaiz());
-           fingrafo= inicio+" "+cuerpo+" "+enlaces+" }";
-            FileWriter file= new FileWriter("Dots\\avlTrees.dot");
-            PrintWriter impresion=new PrintWriter(file);
-            impresion.println(fingrafo);
-            file.close();
-            String comando="dot -Tpng Dots\\avlTrees.dot -o Imagenes\\avlTreespre"+cons1+".png";
-            Runtime rt= Runtime.getRuntime();
-            rt.exec(comando);
-            Thread.sleep(500);
-             if(cons1==0){
-            img.setIcon(new ImageIcon("Imagenes\\avlTreespre0.png"));
-            img.revalidate();
-            img.repaint();
-            }
-            else{
-            img.setIcon(new ImageIcon("Imagenes\\avlTreespre"+cons1+".png"));
-            img.revalidate();
-            img.repaint();
-            }
-            cons1++;
-            System.out.println(fingrafo);
-        }
-        
-          int cons2=0;
-        public void colocarpost(javax.swing.JLabel img, NodoAVL nod) throws IOException, InterruptedException{
-            fingrafo="";
-            cuerpo="";
-            enlaces="";
-            graficar(getRaiz(),nod.getDato());
-            graficar2(getRaiz());
-           fingrafo= inicio+" "+cuerpo+" "+enlaces+" }";
-            FileWriter file= new FileWriter("Dots\\avlTrees.dot");
-            PrintWriter impresion=new PrintWriter(file);
-            impresion.println(fingrafo);
-            file.close();
-            String comando="dot -Tpng Dots\\avlTrees.dot -o Imagenes\\avlTreespost"+cons2+".png";
-            Runtime rt= Runtime.getRuntime();
-            rt.exec(comando);
-            Thread.sleep(500);
-             if(cons2==0){
-            img.setIcon(new ImageIcon("Imagenes\\avlTreespost0.png"));
-            img.revalidate();
-            img.repaint();
-            }
-            else{
-            img.setIcon(new ImageIcon("Imagenes\\avlTreespost"+cons2+".png"));
-            img.revalidate();
-            img.repaint();
-            }
-            cons2++;
-            System.out.println(fingrafo);
-        }
 }
     //metodos insertar, obtener altura, recorrer

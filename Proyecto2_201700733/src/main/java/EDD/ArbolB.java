@@ -5,18 +5,23 @@
  */
 package EDD;
 
+import Principal.Libro;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.lang.*;
 import java.util.Comparator;
 /**
  *
  * @author byron
  */
-public class ArbolB<T extends Comparable <T>> {
+public class ArbolB  {
     private int minClavetamanio = 1;
     private int minRamasTamanio = minClavetamanio + 1; 
     private int maxClavetamanio = 2 * minClavetamanio; 
     private int maxRamasTamanio = maxClavetamanio + 1; 
     
-    private Nodo<T> raiz = null;
+    private Nodo raiz = null;
     private int tamanio = 0;
     
     public ArbolB(int orden) {
@@ -26,7 +31,7 @@ public class ArbolB<T extends Comparable <T>> {
         this.maxRamasTamanio = maxClavetamanio + 1;
     }
     boolean datoEcnontrado=false;
-    public boolean buscarDato(T dato, Nodo raiz){
+    public boolean buscarDato(Libro dato, Nodo raiz){
          if(raiz!=null){
              for (int i = 0; i < raiz.clavesTamanio; i++) {
                  if(dato==raiz.claves[i]){
@@ -43,16 +48,16 @@ public class ArbolB<T extends Comparable <T>> {
          else
              return false;
     }
-      public boolean insertar(T dato) {
+      public boolean insertar(Libro dato) {
         if (raiz == null) {
-            raiz = new Nodo<T>(null, maxClavetamanio, maxRamasTamanio);
+            raiz = new Nodo(null, maxClavetamanio, maxRamasTamanio);
             raiz.insertarClave(dato);
         } else {
           if(!buscarDato(dato, raiz)){
           datoEcnontrado=false;
               return false;
           }
-            Nodo<T> nodo = raiz;
+            Nodo nodo = raiz;
             while (nodo != null) {
                 if (nodo.numeroRamas() == 0) {
                     nodo.insertarClave(dato);
@@ -62,7 +67,7 @@ public class ArbolB<T extends Comparable <T>> {
                     dividirNodo(nodo);
                     break;
                 }
-                T menor = nodo.getClave(0);
+                Libro menor = nodo.getClave(0);
                 if (dato.compareTo(menor) <= 0) {
                     nodo = nodo.getRama(0);
                     continue;
@@ -71,14 +76,14 @@ public class ArbolB<T extends Comparable <T>> {
                 // Greater
                 int numeroClaves = nodo.numeroClaves();
                 int ultimo = numeroClaves - 1;
-                T mayor = nodo.getClave(ultimo);
+                Libro mayor = nodo.getClave(ultimo);
                 if (dato.compareTo(mayor) > 0) {
                     nodo = nodo.getRama(numeroClaves);
                     continue;
                 }
                 for (int i = 1; i < nodo.numeroClaves(); i++) {
-                    T prev = nodo.getClave(i - 1);
-                    T siguiente = nodo.getClave(i);
+                    Libro prev = nodo.getClave(i - 1);
+                    Libro siguiente = nodo.getClave(i);
                     if (dato.compareTo(prev) > 0 && dato.compareTo(siguiente) <= 0) {
                         nodo = nodo.getRama(i);
                         break;
@@ -93,36 +98,36 @@ public class ArbolB<T extends Comparable <T>> {
         
     }
     
-      private void dividirNodo(Nodo<T> nodoToDividirNodo) {
-        Nodo<T> nodo = nodoToDividirNodo;
+      private void dividirNodo(Nodo nodoToDividirNodo) {
+        Nodo nodo = nodoToDividirNodo;
         int numeroClaves = nodo.numeroClaves();
         int medianIndex = numeroClaves / 2;
-        T medianDato = nodo.getClave(medianIndex);
+        Libro medianDato = nodo.getClave(medianIndex);
 
-        Nodo<T> izquierda = new Nodo<T>(null, maxClavetamanio, maxRamasTamanio);
+        Nodo izquierda = new Nodo(null, maxClavetamanio, maxRamasTamanio);
         for (int i = 0; i < medianIndex; i++) {
             izquierda.insertarClave(nodo.getClave(i));
         }
         if (nodo.numeroRamas() > 0) {
             for (int j = 0; j <= medianIndex; j++) {
-                Nodo<T> c = nodo.getRama(j);
+                Nodo c = nodo.getRama(j);
                 izquierda.insertarRama(c);
             }
         }
 
-        Nodo<T> derecha = new Nodo<T>(null, maxClavetamanio, maxRamasTamanio);
+        Nodo derecha = new Nodo(null, maxClavetamanio, maxRamasTamanio);
         for (int i = medianIndex + 1; i < numeroClaves; i++) {
             derecha.insertarClave(nodo.getClave(i));
         }
         if (nodo.numeroRamas() > 0) {
             for (int j = medianIndex + 1; j < nodo.numeroRamas(); j++) {
-                Nodo<T> c = nodo.getRama(j);
+                Nodo c = nodo.getRama(j);
                 derecha.insertarRama(c);
             }
         }
 
         if (nodo.padre == null) {
-            Nodo<T> newRaiz = new Nodo<T>(null, maxClavetamanio, maxRamasTamanio);
+            Nodo newRaiz = new Nodo(null, maxClavetamanio, maxRamasTamanio);
             newRaiz.insertarClave(medianDato);
             nodo.padre = newRaiz;
             raiz = newRaiz;
@@ -130,7 +135,7 @@ public class ArbolB<T extends Comparable <T>> {
             nodo.insertarRama(izquierda);
             nodo.insertarRama(derecha);
         } else {
-            Nodo<T> padre = nodo.padre;
+            Nodo padre = nodo.padre;
             padre.insertarClave(medianDato);
             padre.eliminarRama(nodo);
             padre.insertarRama(izquierda);
@@ -139,9 +144,9 @@ public class ArbolB<T extends Comparable <T>> {
             if (padre.numeroClaves() > maxClavetamanio) dividirNodo(padre);
         }
     }
-private T eliminar(T dato, Nodo<T> nodo) {
+private Libro eliminar(Libro dato, Nodo nodo) {
         if (nodo == null) return null;
-        T eliminars = null;
+        Libro eliminars = null;
         int index = nodo.indexOf(dato);
         eliminars = nodo.eliminarClave(dato);
         if (nodo.numeroRamas() == 0) {
@@ -153,9 +158,9 @@ private T eliminar(T dato, Nodo<T> nodo) {
             }
         } else {
   
-            Nodo<T> menor = nodo.getRama(index);
-            Nodo<T> mayor = this.getMayorNodo(menor);
-            T replaceDato = this.eliminarMayorDato(mayor);
+            Nodo menor = nodo.getRama(index);
+            Nodo mayor = this.getMayorNodo(menor);
+            Libro replaceDato = this.eliminarMayorDato(mayor);
             nodo.insertarClave(replaceDato);
             if (mayor.padre != null && mayor.numeroClaves() < minClavetamanio) {
                 this.combinar(mayor);
@@ -170,14 +175,14 @@ private T eliminar(T dato, Nodo<T> nodo) {
         return eliminars;
     }
 
-public T eliminar(T dato) {
-        T eliminars = null;
-        Nodo<T> nodo = this.getNodo(dato);
+public Libro eliminar(Libro dato) {
+        Libro eliminars = null;
+        Nodo nodo = this.getNodo(dato);
         eliminars = eliminar(dato,nodo);
         return eliminars;
     }    
- private T eliminarMayorDato(Nodo<T> nodo) {
-        T dato = null;
+ private Libro eliminarMayorDato(Nodo nodo) {
+        Libro dato = null;
         if (nodo.numeroClaves() > 0) {
             dato = nodo.eliminarClave(nodo.numeroClaves() - 1);
         }
@@ -188,10 +193,10 @@ public T eliminar(T dato) {
         raiz = null;
         tamanio = 0;
     }
-     private Nodo<T> getNodo(T dato) {
-        Nodo<T> nodo = raiz;
+     private Nodo getNodo(Libro dato) {
+        Nodo nodo = raiz;
         while (nodo != null) {
-            T menor = nodo.getClave(0);
+            Libro menor = nodo.getClave(0);
             if (dato.compareTo(menor) < 0) {
                 if (nodo.numeroRamas() > 0)
                     nodo = nodo.getRama(0);
@@ -202,7 +207,7 @@ public T eliminar(T dato) {
 
             int numeroClaves = nodo.numeroClaves();
             int ultimo = numeroClaves - 1;
-            T mayor = nodo.getClave(ultimo);
+            Libro mayor = nodo.getClave(ultimo);
             if (dato.compareTo(mayor) > 0) {
                 if (nodo.numeroRamas() > numeroClaves)
                     nodo = nodo.getRama(numeroClaves);
@@ -212,14 +217,14 @@ public T eliminar(T dato) {
             }
 
             for (int i = 0; i < numeroClaves; i++) {
-                T actualDato = nodo.getClave(i);
+                Libro actualDato = nodo.getClave(i);
                 if (actualDato.compareTo(dato) == 0) {
                     return nodo;
                 }
 
                 int siguiente = i + 1;
                 if (siguiente <= ultimo) {
-                    T siguienteDato = nodo.getClave(siguiente);
+                    Libro siguienteDato = nodo.getClave(siguiente);
                     if (actualDato.compareTo(dato) < 0 && siguienteDato.compareTo(dato) > 0) {
                         if (siguiente < nodo.numeroRamas()) {
                             nodo = nodo.getRama(siguiente);
@@ -233,30 +238,30 @@ public T eliminar(T dato) {
         return null;
     }
      
-     private boolean combinar(Nodo<T> nodo) {
-        Nodo<T> padre = nodo.padre;
+     private boolean combinar(Nodo nodo) {
+        Nodo padre = nodo.padre;
         int index = padre.indexOf(nodo);
         int indexOfIzquierdaV = index - 1;
         int indexOfDerechaV = index + 1;
 
-        Nodo<T> derechaV = null;
+        Nodo derechaV = null;
         int derechaVTamanio = -minRamasTamanio;
         if (indexOfDerechaV < padre.numeroRamas()) {
             derechaV = padre.getRama(indexOfDerechaV);
             derechaVTamanio = derechaV.numeroClaves();
         }
         if (derechaV != null && derechaVTamanio > minClavetamanio) {
-            T eliminarDato = derechaV.getClave(0);
+            Libro eliminarDato = derechaV.getClave(0);
             int prev = getIndexAnteriorDato(padre, eliminarDato);
-            T padreDato = padre.eliminarClave(prev);
-            T vDato = derechaV.eliminarClave(0);
+            Libro padreDato = padre.eliminarClave(prev);
+            Libro vDato = derechaV.eliminarClave(0);
             nodo.insertarClave(padreDato);
             padre.insertarClave(vDato);
             if (derechaV.numeroRamas() > 0) {
                 nodo.insertarRama(derechaV.eliminarRama(0));
             }
         } else {
-            Nodo<T> izquierdaV = null;
+            Nodo izquierdaV = null;
             int izquierdaVTamanio = -minRamasTamanio;
             if (indexOfIzquierdaV >= 0) {
                 izquierdaV = padre.getRama(indexOfIzquierdaV);
@@ -265,27 +270,27 @@ public T eliminar(T dato) {
 
             if (izquierdaV != null && izquierdaVTamanio > minClavetamanio) {
                 // Try to borrow from izquierda v
-                T eliminarDato = izquierdaV.getClave(izquierdaV.numeroClaves() - 1);
+                Libro eliminarDato = izquierdaV.getClave(izquierdaV.numeroClaves() - 1);
                 int prev = getIndexSiguienteDato(padre, eliminarDato);
-                T padreDato = padre.eliminarClave(prev);
-                T vDato = izquierdaV.eliminarClave(izquierdaV.numeroClaves() - 1);
+                Libro padreDato = padre.eliminarClave(prev);
+                Libro vDato = izquierdaV.eliminarClave(izquierdaV.numeroClaves() - 1);
                 nodo.insertarClave(padreDato);
                 padre.insertarClave(vDato);
                 if (izquierdaV.numeroRamas() > 0) {
                     nodo.insertarRama(izquierdaV.eliminarRama(izquierdaV.numeroRamas() - 1));
                 }
             } else if (derechaV != null && padre.numeroClaves() > 0) {
-                T eliminarDato = derechaV.getClave(0);
+                Libro eliminarDato = derechaV.getClave(0);
                 int prev = getIndexAnteriorDato(padre, eliminarDato);
-                T padreDato = padre.eliminarClave(prev);
+                Libro padreDato = padre.eliminarClave(prev);
                 padre.eliminarRama(derechaV);
                 nodo.insertarClave(padreDato);
                 for (int i = 0; i < derechaV.clavesTamanio; i++) {
-                    T v = derechaV.getClave(i);
+                    Libro v = derechaV.getClave(i);
                     nodo.insertarClave(v);
                 }
                 for (int i = 0; i < derechaV.ramasTamanio; i++) {
-                    Nodo<T> c = derechaV.getRama(i);
+                    Nodo c = derechaV.getRama(i);
                     nodo.insertarRama(c);
                 }
 
@@ -296,17 +301,17 @@ public T eliminar(T dato) {
                     raiz = nodo;
                 }
             } else if (izquierdaV != null && padre.numeroClaves() > 0) {
-                T eliminarDato = izquierdaV.getClave(izquierdaV.numeroClaves() - 1);
+                Libro eliminarDato = izquierdaV.getClave(izquierdaV.numeroClaves() - 1);
                 int prev = getIndexSiguienteDato(padre, eliminarDato);
-                T padreDato = padre.eliminarClave(prev);
+                Libro padreDato = padre.eliminarClave(prev);
                 padre.eliminarRama(izquierdaV);
                 nodo.insertarClave(padreDato);
                 for (int i = 0; i < izquierdaV.clavesTamanio; i++) {
-                    T v = izquierdaV.getClave(i);
+                    Libro v = izquierdaV.getClave(i);
                     nodo.insertarClave(v);
                 }
                 for (int i = 0; i < izquierdaV.ramasTamanio; i++) {
-                    Nodo<T> c = izquierdaV.getRama(i);
+                    Nodo c = izquierdaV.getRama(i);
                     nodo.insertarRama(c);
                 }
 
@@ -322,17 +327,17 @@ public T eliminar(T dato) {
         return true;
     }
      
-       private int getIndexAnteriorDato(Nodo<T> nodo, T dato) {
+       private int getIndexAnteriorDato(Nodo nodo, Libro dato) {
         for (int i = 1; i < nodo.numeroClaves(); i++) {
-            T t = nodo.getClave(i);
+            Libro t = nodo.getClave(i);
             if (t.compareTo(dato) >= 0)
                 return i - 1;
         }
         return nodo.numeroClaves() - 1;
     }
-       private int getIndexSiguienteDato(Nodo<T> nodo, T dato) {
+       private int getIndexSiguienteDato(Nodo nodo, Libro dato) {
         for (int i = 0; i < nodo.numeroClaves(); i++) {
-            T t = nodo.getClave(i);
+            Libro t = nodo.getClave(i);
             if (t.compareTo(dato) >= 0)
                 return i;
         }
@@ -347,13 +352,13 @@ public T eliminar(T dato) {
         if (raiz == null) return true;
         return validarNodo(raiz);
     }
-    private boolean validarNodo(Nodo<T> nodo) {
+    private boolean validarNodo(Nodo nodo) {
         int clavetamanio = nodo.numeroClaves();
         if (clavetamanio > 1) {
             // Make sure the claves are sorted
             for (int i = 1; i < clavetamanio; i++) {
-                T p = nodo.getClave(i - 1);
-                T n = nodo.getClave(i);
+                Libro p = nodo.getClave(i - 1);
+                Libro n = nodo.getClave(i);
                 if (p.compareTo(n) > 0)
                     return false;
             }
@@ -392,18 +397,18 @@ public T eliminar(T dato) {
             }
         }
 
-        Nodo<T> first = nodo.getRama(0);
+        Nodo first = nodo.getRama(0);
         if (first.getClave(first.numeroClaves() - 1).compareTo(nodo.getClave(0)) > 0)
             return false;
 
-        Nodo<T> last = nodo.getRama(nodo.numeroRamas() - 1);
+        Nodo last = nodo.getRama(nodo.numeroRamas() - 1);
         if (last.getClave(0).compareTo(nodo.getClave(nodo.numeroClaves() - 1)) < 0)
             return false;
 
         for (int i = 1; i < nodo.numeroClaves(); i++) {
-            T p = nodo.getClave(i - 1);
-            T n = nodo.getClave(i);
-            Nodo<T> c = nodo.getRama(i);
+            Libro p = nodo.getClave(i - 1);
+            Libro n = nodo.getClave(i);
+            Nodo c = nodo.getRama(i);
             if (p.compareTo(c.getClave(0)) > 0)
                 return false;
             if (n.compareTo(c.getClave(c.numeroClaves() - 1)) < 0)
@@ -411,16 +416,15 @@ public T eliminar(T dato) {
         }
 
         for (int i = 0; i < nodo.ramasTamanio; i++) {
-            Nodo<T> c = nodo.getRama(i);
+            Nodo c = nodo.getRama(i);
             boolean valid = this.validarNodo(c);
             if (!valid)
                 return false;
         }
-
         return true;
     }
-     private Nodo<T> getMayorNodo(Nodo<T> obtener) {
-        Nodo<T> nodo = obtener;
+     private Nodo getMayorNodo(Nodo obtener) {
+        Nodo nodo = obtener;
         while (nodo.numeroRamas() > 0) {
             nodo = nodo.getRama(nodo.numeroRamas() - 1);
         }
@@ -428,7 +432,7 @@ public T eliminar(T dato) {
     }
      
      
-      public void imprimirNodo(){
+      public void imprimirNodo() throws IOException, InterruptedException{
             imprimirRaiz(this.raiz);
         }
       public void imprimirNiveles(){
@@ -445,13 +449,13 @@ public T eliminar(T dato) {
     }
   }
 }
-        public void imprimirRaiz(Nodo raiz){
             StringBuilder b= new StringBuilder();
+        public void imprimirRaiz(Nodo raiz) throws IOException, InterruptedException{
             if(raiz!=null){
                  b.append("Nodo"+raiz.hashCode());
         b.append("[label=\"<P0>");
     for (int i = 0; i < raiz.clavesTamanio; i++) {
-       b.append("|"+ raiz.claves[i]);
+       b.append("|"+ raiz.claves[i].getISBN()+", "+raiz.claves[i].getTitulo());
        b.append("|<P"+(i+1)+">");
     }
     b.append("\"];\n");
@@ -460,6 +464,7 @@ public T eliminar(T dato) {
                 b.append("Nodo"+raiz.hashCode()+":P"+i+"->"+"Nodo"+raiz.ramas[i].hashCode()+";\n");
                  }
     }
+            
                 /*
                 b.append("Nodo"+raiz.hashCode());
                 b.append("[label=\"<P0>");
@@ -489,48 +494,58 @@ public T eliminar(T dato) {
                 }
         }*/
             System.out.println(b);
+            mostrarB(b);
+        }
+        private void mostrarB(StringBuilder dato) throws IOException, InterruptedException{
+            String mensaje="digraph Btree{ \n  node[shape=record, width= 0.1, height= 0.1];\n"+dato+"\n}";
+            FileWriter file= new FileWriter("bTree.dot");
+            PrintWriter impresion= new PrintWriter(file);
+            impresion.println(mensaje);
+            file.close();
+            String comando= "dot -Tpng bTree.dot -o bTree.png";
+            Runtime rt= Runtime.getRuntime();
+            rt.exec(comando);
         }
         
-      private static class Nodo<T extends Comparable<T>> {
+      private static class Nodo {
 
-        private T[] claves = null;
+        private Libro[] claves = null;
         private int clavesTamanio = 0;
-        private Nodo<T>[] ramas = null;
+        private Nodo[] ramas = null;
         private int ramasTamanio = 0;
-        private Comparator<Nodo<T>> comparator = new Comparator<Nodo<T>>() {
+        protected Nodo padre = null;
+        private Comparator<Nodo> comparator = new Comparator<Nodo>() {
             @Override
-            public int compare(Nodo<T> arg0, Nodo<T> arg1) {
+            public int compare(Nodo arg0, Nodo arg1) {
                 return arg0.getClave(0).compareTo(arg1.getClave(0));
             }
         };
-        protected Nodo<T> padre = null;
-
-        private Nodo(Nodo<T> padre, int maxClavetamanio, int maxRamasTamanio) {
+        private Nodo(Nodo padre, int maxClavetamanio, int maxRamasTamanio) {
             this.padre = padre;
-            this.claves = (T[]) new Comparable[maxClavetamanio + 1];
+            this.claves =  new Libro[maxClavetamanio + 1];
             this.clavesTamanio = 0;
             this.ramas = new Nodo[maxRamasTamanio + 1];
             this.ramasTamanio = 0;
         }
 
-        private T getClave(int index) {
+        private Libro getClave(int index) {
             return claves[index];
         }
 
-        private int indexOf(T dato) {
+        private int indexOf(Libro dato) {
             for (int i = 0; i < clavesTamanio; i++) {
                 if (claves[i].equals(dato)) return i;
             }
             return -1;
         }
 
-        private void insertarClave(T dato) {
+        private void insertarClave(Libro dato) {
             claves[clavesTamanio++] = dato;
             java.util.Arrays.sort(claves, 0, clavesTamanio);
         }
 
-        private T eliminarClave(T dato) {
-            T eliminars = null;
+        private Libro eliminarClave(Libro dato) {
+            Libro eliminars = null;
             boolean found = false;
             if (clavesTamanio == 0) return null;
             for (int i = 0; i < clavesTamanio; i++) {
@@ -549,10 +564,10 @@ public T eliminar(T dato) {
             return eliminars;
         }
 
-        private T eliminarClave(int index) {
+        private Libro eliminarClave(int index) {
             if (index >= clavesTamanio)
                 return null;
-            T dato = claves[index];
+            Libro dato = claves[index];
             for (int i = index + 1; i < clavesTamanio; i++) {
                 // shift the rest of the claves down
                 claves[i - 1] = claves[i];
@@ -566,13 +581,13 @@ public T eliminar(T dato) {
             return clavesTamanio;
         }
 
-        private Nodo<T> getRama(int index) {
+        private Nodo getRama(int index) {
             if (index >= ramasTamanio)
                 return null;
             return ramas[index];
         }
 
-        private int indexOf(Nodo<T> rama) {
+        private int indexOf(Nodo rama) {
             for (int i = 0; i < ramasTamanio; i++) {
                 if (ramas[i].equals(rama))
                     return i;
@@ -580,14 +595,14 @@ public T eliminar(T dato) {
             return -1;
         }
 
-        private boolean insertarRama(Nodo<T> rama) {
+        private boolean insertarRama(Nodo rama) {
             rama.padre = this;
             ramas[ramasTamanio++] = rama;
-            java.util.Arrays.sort(ramas, 0, ramasTamanio, comparator);
+            java.util.Arrays.sort(ramas, 0, ramasTamanio,comparator);
             return true;
         }
 
-        private boolean eliminarRama(Nodo<T> rama) {
+        private boolean eliminarRama(Nodo rama) {
             boolean encontrado = false;
             if (ramasTamanio == 0)
                 return encontrado;
@@ -606,10 +621,10 @@ public T eliminar(T dato) {
             return encontrado;
         }
 
-        private Nodo<T> eliminarRama(int index) {
+        private Nodo eliminarRama(int index) {
             if (index >= ramasTamanio)
                 return null;
-            Nodo<T> dato = ramas[index];
+            Nodo dato = ramas[index];
             ramas[index] = null;
             for (int i = index + 1; i < ramasTamanio; i++) {
                 // shift the rest of the claves down
@@ -633,7 +648,7 @@ public T eliminar(T dato) {
 
             builder.append("claves=[");
             for (int i = 0; i < numeroClaves(); i++) {
-                T dato = getClave(i);
+                Libro dato = getClave(i);
                 builder.append(dato);
                 if (i < numeroClaves() - 1)
                     builder.append(", ");
@@ -643,7 +658,7 @@ public T eliminar(T dato) {
             if (padre != null) {
                 builder.append("parent=[");
                 for (int i = 0; i < padre.numeroClaves(); i++) {
-                    T dato = padre.getClave(i);
+                    Libro dato = padre.getClave(i);
                     builder.append(dato);
                     if (i < padre.numeroClaves() - 1)
                         builder.append(", ");

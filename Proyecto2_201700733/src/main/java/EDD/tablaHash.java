@@ -5,6 +5,9 @@
  */
 package EDD;
 import Principal.Usuario;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.security.MessageDigest;
 import javax.swing.JOptionPane;
 import javax.xml.bind.DatatypeConverter;
@@ -22,7 +25,7 @@ public class tablaHash {
     public tablaHash(){
         guardaUsuario= new ListaEnlazada[size];
         for (int i = 0; i < size; i++) {
-            guardaUsuario[i]=null;
+            guardaUsuario[i]=new ListaEnlazada<>();
         }
     }
     public void obtenerUsuario(int numeroCarnet, String nombre, String apellido, String carrera, String password) throws Exception{
@@ -81,5 +84,58 @@ public class tablaHash {
             else
                 return null;
         }
- 
+        
+        public void modificarDatos(Usuario usuario) throws Exception{
+            String pass= usuario.getContrasenia();
+            guardaUsuario[pos].obtenerElemento(elemento).setApellido(usuario.getApellido());
+            guardaUsuario[pos].obtenerElemento(elemento).setNombre(usuario.getNombre());
+            guardaUsuario[pos].obtenerElemento(elemento).setCarrera(usuario.getCarrera());
+            guardaUsuario[pos].obtenerElemento(elemento).setCarnet(usuario.getCarnet());
+            guardaUsuario[pos].obtenerElemento(elemento).setContrasenia(pass);
+            
+        }
+        
+        public void graficar() throws IOException, InterruptedException{
+            String b="";
+            b=("Nodo"+guardaUsuario.hashCode());
+            b+=("[label=\"<P0>");
+            for (int i = 0; i < size; i++) {
+                b+=(i);
+                b+=("|<P"+(i+1)+">");
+                if(guardaUsuario[i].getTamanio()==0){
+                    b+=("/");
+                }
+            }
+            b+=("\"];\n");
+            
+            for (int i = 0; i < size; i++) {
+                if(guardaUsuario[i].getTamanio()!=0){
+                    for (int j = 0; j < guardaUsuario[i].getTamanio(); j++) {
+                       b+=("Nodo"+guardaUsuario[i].obtenerElemento(j).hashCode());
+                        b+=("[label=\" Nombre: "+guardaUsuario[i].obtenerElemento(j).getNombre());
+                        b+=(" Apellido:  "+guardaUsuario[i].obtenerElemento(j).getApellido()+"\n");
+                        b+=(" Carnet: "+guardaUsuario[i].obtenerElemento(j).getCarnet()+"\n");
+                        b+=(" PassWord Encriptada: "+guardaUsuario[i].obtenerElemento(j).getContrasenia());
+                        b+="\"];\n";
+                        if((j+1)<guardaUsuario[i].getTamanio())
+                            b+=("Nodo"+guardaUsuario[i].obtenerElemento(j).hashCode()+"->"+"Nodo"+guardaUsuario[i].obtenerElemento(j+1).hashCode()+"\n");
+                    }
+                   b+=("Nodo"+guardaUsuario.hashCode()+":P"+i+" ->"+"Nodo"+guardaUsuario[i].obtenerElemento(0).hashCode()+"\n");
+                }
+            }
+            
+            System.out.println(b);
+            mostrarHash(b);
+        }
+        private void mostrarHash(String dato) throws IOException, InterruptedException{
+            String mensaje="digraph Hash{ \n rankdir= LR\n node[shape=record, width= 0.1, height= 0.1];\n"+dato+"\n}";
+            FileWriter file= new FileWriter("Hash.dot");
+            PrintWriter impresion= new PrintWriter(file);
+            impresion.println(mensaje);
+            file.close();
+            String comando= "dot -Tpng Hash.dot -o Hash.png";
+            Runtime rt= Runtime.getRuntime();
+            rt.exec(comando);
+            Thread.sleep(500);
+        }
 }

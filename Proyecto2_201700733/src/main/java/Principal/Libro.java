@@ -9,7 +9,7 @@ package Principal;
  *
  * @author byron
  */
-public class Libro {
+public class Libro implements Comparable<Libro>{
 
     public int getISBN() {
         return ISBN;
@@ -103,4 +103,13 @@ public class Libro {
     private String categoria;
     private String idioma;
     private String carnetUsuario;
+
+    @Override
+    public int compareTo(Libro o) {
+        int resultado=0;
+        if(this.ISBN<o.getISBN()){resultado=-1;}
+        else if(this.ISBN>o.getISBN()){resultado=1;}
+        else{resultado=0;}
+        return resultado;
+    }
 }

@@ -1,15 +1,10 @@
-digraph "GraficaAVL"{ nodo1 [label= " 1
- Altura: 1"];nodo10 [label= " 10
- Altura: 2"];nodo12 [label= " 12
- Altura: 1"];nodo13 [label= " 13
- Altura: 3"];nodo78 [label= " 78
- Altura: 1"];nodo90 [label= " 90
- Altura: 2"];nodo99 [label= " 99
- Altura: 1"];nodo13 [style=filled, fillcolor=pink, label= " 13
- Altura: 3"]; nodo13->nodo10
-nodo13->nodo90
-nodo10->nodo1
-nodo10->nodo12
-nodo90->nodo78
-nodo90->nodo99
+digraph "GraficaAVL"{ nodo996048354 [label= " amarillo
+ Altura: 2"];nodo879265152 [label= " anaranjado
+ Altura: 1"];nodo595808176 [label= " azul
+ Altura: 3"];nodo1476907122 [label= " dato
+ Altura: 2"];nodo285087741 [label= " zoor
+ Altura: 1"]; nodo595808176->nodo996048354
+nodo595808176->nodo1476907122
+nodo996048354->nodo879265152
+nodo1476907122->nodo285087741
  }
