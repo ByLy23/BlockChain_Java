@@ -225,13 +225,13 @@ public class arbolAVL {
         }
         else if(dato.compareTo(raiz.getDato())<0){
             NodoAVL izquierdo;
-            izquierdo= borrarNodo(raiz.getIzquierdo(),dato,arbolito);
+            izquierdo= borrarNodo(raiz.getIzquierdo(),dato,raiz.getArbolito());
             raiz.setIzquierdo(izquierdo);
             //insertar izquierdo
         }
         else if(dato.compareTo(raiz.getDato())>0){
             NodoAVL derecho;
-            derecho=borrarNodo(raiz.getDerecho(),dato,arbolito);
+            derecho=borrarNodo(raiz.getDerecho(),dato,raiz.getArbolito());
             raiz.setDerecho(derecho);
             //insertarDerecho
         }

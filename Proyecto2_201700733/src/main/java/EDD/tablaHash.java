@@ -103,7 +103,7 @@ public class tablaHash {
         }
         
         public void modificarDatos(Usuario usuario) throws Exception{
-            String pass= usuario.getContrasenia();
+            String pass= generarHash(usuario.getContrasenia());
             guardaUsuario[pos].obtenerElemento(elemento).setApellido(usuario.getApellido());
             guardaUsuario[pos].obtenerElemento(elemento).setNombre(usuario.getNombre());
             guardaUsuario[pos].obtenerElemento(elemento).setCarrera(usuario.getCarrera());

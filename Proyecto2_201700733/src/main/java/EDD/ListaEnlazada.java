@@ -116,6 +116,7 @@ public class ListaEnlazada<T> {
         T informacion=null;
         if(inicio==fin){
             inicio=fin=null;
+            tamanio--;
         }
         else if(index==0){
            informacion =inicio.getDato();
