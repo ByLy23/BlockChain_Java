@@ -1,0 +1,137 @@
+{
+	"Usuarios":[
+		{
+			"Carnet": 201503476,
+			"Nombre": "Ricardo",
+			"Apellido": "Cutz",
+			"Carrera": "Ingenieria en Sistemas",
+			"Password": "12efe3456"
+		},
+		{
+			"Carnet": 201503477,
+			"Nombre": "Juanito",
+			"Apellido": "Hernandez",
+			"Carrera": "Ingenieria Civil",
+			"Password": "1234j6"
+		},
+		{
+			"Carnet": 202005878,
+			"Nombre": "Antonio",
+			"Apellido": "Hernandez",
+			"Carrera": "Ingenieria Electrica",
+			"Password": "123yeso456"
+		},
+		{
+			"Carnet": 201408795,
+			"Nombre": "Maria",
+			"Apellido": "Tahual",
+			"Carrera": "Derecho",
+			"Password": "amoGatos"
+		},
+		{
+			"Carnet": 8012206,
+			"Nombre": "Byron",
+			"Apellido": "Orellana",
+			"Carrera": "Ingenieria Industrial",
+			"Password": "russel"
+		},
+		{
+			"Carnet": 297842640,
+			"Nombre": "Martin",
+			"Apellido": "Ricky",
+			"Carrera": "Humanidades",
+			"Password": "Pirates"
+		},
+		{
+			"Carnet": 199748597,
+			"Nombre": "Martha",
+			"Apellido": "Alfaro",
+			"Carrera": "Ingenieria Biologia",
+			"Password": "efe"
+		},
+		{
+			"Carnet": 798046523,
+			"Nombre": "Walter",
+			"Apellido": "Sereminio",
+			"Carrera": "Ingenieria Mortal",
+			"Password": "MelancholyHill"
+		},
+		{
+			"Carnet": 201503476,
+			"Nombre": "Ricardo",
+			"Apellido": "Cutz",
+			"Carrera": "Ingenieria en Sistemas",
+			"Password": "12efe3456"
+		},
+		{
+			"Carnet": 605978535,
+			"Nombre": "Swerto",
+			"Apellido": "meeeee",
+			"Carrera": "Medicina",
+			"Password": "12efe356"
+		},
+		{
+			"Carnet": 201509782,
+			"Nombre": "Nower",
+			"Apellido": "Martinez",
+			"Carrera": "Ingenieria en Sistemas",
+			"Password": "121efe3456"
+		},
+		{
+			"Carnet": 205978645,
+			"Nombre": "Roberto",
+			"Apellido": "Arzu",
+			"Carrera": "hueco",
+			"Password": "pvto el que lo lea"
+		},
+		{
+			"Carnet": 201770733,
+			"Nombre": "Mario",
+			"Apellido": "Lopez",
+			"Carrera": "Ingenieria electronica",
+			"Password": "theBest<3"
+		},
+		{
+			"Carnet": 201503476,
+			"Nombre": "Impostor",
+			"Apellido": "Prueba jaja",
+			"Carrera": "Ingenieria en Sistemas",
+			"Password": "12efe3456q"
+		},
+		{
+			"Carnet": 2011088766,
+			"Nombre": "Muchs",
+			"Apellido": "Datos",
+			"Carrera": "Ingenieria Puse xd",
+			"Password": "12efe6"
+		},
+		{
+			"Carnet": 208950170,
+			"Nombre": "Close",
+			"Apellido": "Cual",
+			"Carrera": "Ingenieria en Sistemas",
+			"Password": "12efe3456"
+		},
+		{
+			"Carnet": 201789789,
+			"Nombre": "Macos",
+			"Apellido": "Cabrera",
+			"Carrera": "Derecho Industrial",
+			"Password": "soigei"
+		},
+		{
+			"Carnet": 197835684,
+			"Nombre": "Marquitos",
+			"Apellido": "MArtinez",
+			"Carrera": "Ingenieria zistemaz",
+			"Password": "12norecuerdo56"
+		},
+		{
+			"Carnet": 978465132,
+			"Nombre": "Eres",
+			"Apellido": "Mi pensamiento",
+			"Carrera": "Mas profundo",
+			"Password": "12exdfe3456"
+		}
+	]
+}

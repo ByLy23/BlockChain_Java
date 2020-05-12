@@ -20,40 +20,35 @@ public class Inicio extends javax.swing.JFrame {
   /**
      * Creates new form Inicio
      */
-    arbolAVL arbolito;
-    public static tablaHash tablita;
-    ArbolB bTree;
+    public static Clases_Estaticas clases= new Clases_Estaticas();
     public Inicio() throws Exception {
-        arbolito= new arbolAVL();
-        bTree= new ArbolB(2);
-        tablita= new tablaHash();
         initComponents();
         this.setLocationRelativeTo(null);
-        bTree.insertar(new Libro(10, "Lea", "Ssombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
-        bTree.insertar(new Libro(20, "wLa", "Sombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
-        bTree.insertar(new Libro(30, "La", "Somsbra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
-        bTree.insertar(new Libro(40, "Lna", "Sombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
-        bTree.insertar(new Libro(50, "Lsa", "Sombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
-        bTree.insertar(new Libro(90, "Lsa", "Sombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
-        bTree.insertar(new Libro(13, "Laa", "Socmbra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
-        bTree.insertar(new Libro(65, "Laa", "Sombsra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
-        bTree.insertar(new Libro(56, "aLa", "Soasmbra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
-        bTree.insertar(new Libro(1, "La", "Socmbra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
-        bTree.insertar(new Libro(91, "La", "Sombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
-        bTree.insertar(new Libro(9, "Lsa", "Sombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
-        bTree.insertar(new Libro(7, "Lza", "Sombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
-        bTree.insertar(new Libro(901, "Laa", "Sombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
-        bTree.insertar(new Libro(568, "Lza", "Sombra", "De", "Gray", "Unica", "Tozdas", "Ingles", "13264"));
-        bTree.insertar(new Libro(97, "Lza", "Sombra", "De", "Gray", "Unica", "Txodas", "Ingles", "13264"));
-        bTree.insertar(new Libro(17, "Lva", "Sombra", "De", "Gray", "Unica", "Txodas", "Ingles", "13264"));
-        bTree.insertar(new Libro(10, "Lxa", "Sombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
-        bTree.imprimirNodo();
-        arbolito.insertar("azul", bTree);
-        arbolito.insertar("amarillo", bTree);
-        arbolito.insertar("dato", bTree);
-        arbolito.insertar("anaranjado", bTree);
-        arbolito.insertar("zoor", bTree);
-        arbolito.colocarGrafo();
+        clases.bTree.insertar(new Libro(10, "Lea", "Ssombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
+        clases.bTree.insertar(new Libro(20, "wLa", "Sombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
+        clases.bTree.insertar(new Libro(30, "La", "Somsbra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
+        clases.bTree.insertar(new Libro(40, "Lna", "Sombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
+        clases.bTree.insertar(new Libro(50, "Lsa", "Sombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
+        clases.bTree.insertar(new Libro(90, "Lsa", "Sombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
+        clases.bTree.insertar(new Libro(13, "Laa", "Socmbra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
+        clases.bTree.insertar(new Libro(65, "Laa", "Sombsra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
+        clases.bTree.insertar(new Libro(56, "aLa", "Soasmbra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
+        clases.bTree.insertar(new Libro(1, "La", "Socmbra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
+        clases.bTree.insertar(new Libro(91, "La", "Sombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
+        clases.bTree.insertar(new Libro(9, "Lsa", "Sombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
+       clases. bTree.insertar(new Libro(7, "Lza", "Sombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
+        clases.bTree.insertar(new Libro(901, "Laa", "Sombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
+        clases.bTree.insertar(new Libro(568, "Lza", "Sombra", "De", "Gray", "Unica", "Tozdas", "Ingles", "13264"));
+        clases.bTree.insertar(new Libro(97, "Lza", "Sombra", "De", "Gray", "Unica", "Txodas", "Ingles", "13264"));
+        clases.bTree.insertar(new Libro(17, "Lva", "Sombra", "De", "Gray", "Unica", "Txodas", "Ingles", "13264"));
+        clases.bTree.insertar(new Libro(10, "Lxa", "Sombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
+        clases.bTree.imprimirNodo();
+        clases.arbolito.insertar("azul", clases.bTree);
+        clases.arbolito.insertar("amarillo", clases.bTree);
+        clases.arbolito.insertar("dato", clases.bTree);
+        clases.arbolito.insertar("anaranjado", clases.bTree);
+        clases.arbolito.insertar("zoor", clases.bTree);
+        clases.arbolito.colocarGrafo();
     }
 
     /**
@@ -138,7 +133,7 @@ if(user.getText().equals("") || pass.getText().equals("")){
     JOptionPane.showMessageDialog(null, "No hay datos suficientes");
 }else{
     try {
-        boolean bandera= tablita.buscarCredenciales(user.getText(), pass.getText());
+        boolean bandera= clases.tablita.buscarCredenciales(user.getText(), pass.getText());
         if(bandera){
             this.setVisible(false);
             new Menu().setVisible(true);

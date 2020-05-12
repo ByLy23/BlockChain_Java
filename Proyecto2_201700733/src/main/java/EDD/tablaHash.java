@@ -31,10 +31,14 @@ public class tablaHash {
     public void obtenerUsuario(int numeroCarnet, String nombre, String apellido, String carrera, String password) throws Exception{
         int posicion= F(numeroCarnet);
         String pass= generarHash(password);
+        boolean repetido= buscarRepetido(numeroCarnet);
+        if(!repetido){
         if(guardaUsuario[posicion]==null)
             guardaUsuario[posicion].insertarFinal(new Usuario(numeroCarnet, nombre, apellido, carrera, pass));
         else
              guardaUsuario[posicion].insertarInicio(new Usuario(numeroCarnet, nombre, apellido, carrera, pass));
+        }else
+            System.out.println("Repetido");
     }
    
     private int F(int numeroCarnet){
@@ -60,6 +64,19 @@ public class tablaHash {
                 if(carnet== guardaUsuario[i].obtenerElemento(j).getCarnet() && password.equals(guardaUsuario[i].obtenerElemento(j).getContrasenia())) {
                     this.pos=i;
                     this.elemento=j;
+                    return true;
+                }
+            }
+            }
+        }
+        return false;
+    }
+     public boolean buscarRepetido(int carnet){
+        for (int i = 0; i < size; i++) {
+            if(guardaUsuario[i]!=null){
+            for (int j = 0; j < guardaUsuario[i].getTamanio(); j++) {
+                if(guardaUsuario[i].getTamanio()!=0){
+                if(carnet== guardaUsuario[i].obtenerElemento(j).getCarnet()) 
                     return true;
                 }
             }

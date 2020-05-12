@@ -1,15 +1,15 @@
 digraph Btree{ 
   node[shape=record, width= 0.1, height= 0.1];
-Nodo124813331[label="<P0>|10, Lea|<P1>|30, La|<P2>|56, aLa|<P3>|91, La|<P4>"];
-Nodo385765243[label="<P0>|1, La|<P1>|7, Lza|<P2>|9, Lsa|<P3>|10, Lxa|<P4>"];
-Nodo124813331:P0->Nodo385765243;
-Nodo1098738317[label="<P0>|13, Laa|<P1>|17, Lva|<P2>|20, wLa|<P3>"];
-Nodo124813331:P1->Nodo1098738317;
-Nodo1984900831[label="<P0>|40, Lna|<P1>|50, Lsa|<P2>"];
-Nodo124813331:P2->Nodo1984900831;
-Nodo1966884893[label="<P0>|65, Laa|<P1>|90, Lsa|<P2>"];
-Nodo124813331:P3->Nodo1966884893;
-Nodo299717718[label="<P0>|97, Lza|<P1>|568, Lza|<P2>|901, Laa|<P3>"];
-Nodo124813331:P4->Nodo299717718;
+Nodo516441646[label="<P0>|10, Lea|<P1>|30, La|<P2>|56, aLa|<P3>|91, La|<P4>"];
+Nodo2000387116[label="<P0>|1, La|<P1>|7, Lza|<P2>|9, Lsa|<P3>|10, Lxa|<P4>"];
+Nodo516441646:P0->Nodo2000387116;
+Nodo1769838042[label="<P0>|13, Laa|<P1>|17, Lva|<P2>|20, wLa|<P3>"];
+Nodo516441646:P1->Nodo1769838042;
+Nodo1873434014[label="<P0>|40, Lna|<P1>|50, Lsa|<P2>"];
+Nodo516441646:P2->Nodo1873434014;
+Nodo865048435[label="<P0>|65, Laa|<P1>|90, Lsa|<P2>"];
+Nodo516441646:P3->Nodo865048435;
+Nodo528041778[label="<P0>|97, Lza|<P1>|568, Lza|<P2>|901, Laa|<P3>"];
+Nodo516441646:P4->Nodo528041778;
 
 }

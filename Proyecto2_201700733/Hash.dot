@@ -1,14 +1,74 @@
 digraph Hash{ 
  rankdir= LR
  node[shape=record, width= 0.1, height= 0.1];
-Nodo367385899[label="<P0>0|<P1>/1|<P2>/2|<P3>/3|<P4>/4|<P5>/5|<P6>/6|<P7>/7|<P8>/8|<P9>/9|<P10>/10|<P11>/11|<P12>/12|<P13>/13|<P14>/14|<P15>/15|<P16>/16|<P17>/17|<P18>/18|<P19>/19|<P20>/20|<P21>/21|<P22>22|<P23>/23|<P24>/24|<P25>/25|<P26>/26|<P27>/27|<P28>/28|<P29>/29|<P30>/30|<P31>/31|<P32>/32|<P33>/33|<P34>/34|<P35>/35|<P36>/36|<P37>/37|<P38>/38|<P39>/39|<P40>/40|<P41>/41|<P42>/42|<P43>/43|<P44>/44|<P45>"];
-Nodo809543445[label=" Nombre: ByehfqehJASH Apellido:  oiwjfoiwejfo
- Carnet: 2017146
- PassWord Encriptada: 0D4596047EB217AF73AA3B137C6B9CBE"];
-Nodo367385899:P21 ->Nodo809543445
-Nodo393951918[label=" Nombre: Byehfqeh Apellido:  oiwjoejfo
- Carnet: 20171564
- PassWord Encriptada: 80653D1A7759BA6189A2DD1522A5CF70"];
-Nodo367385899:P44 ->Nodo393951918
+Nodo1714618310[label="<P0>0|<P1>1|<P2>2|<P3>3|<P4>4|<P5>/5|<P6>6|<P7>/7|<P8>8|<P9>9|<P10>/10|<P11>11|<P12>/12|<P13>/13|<P14>/14|<P15>/15|<P16>16|<P17>/17|<P18>/18|<P19>/19|<P20>/20|<P21>/21|<P22>22|<P23>/23|<P24>24|<P25>25|<P26>/26|<P27>/27|<P28>28|<P29>/29|<P30>/30|<P31>31|<P32>/32|<P33>33|<P34>/34|<P35>/35|<P36>/36|<P37>/37|<P38>/38|<P39>/39|<P40>/40|<P41>/41|<P42>/42|<P43>/43|<P44>/44|<P45>/"];
+Nodo1040921922[label=" Nombre: Maria Apellido:  Tahual
+ Carnet: 201408795
+ PassWord Encriptada: 8A58DDEAE256A394D481277A7FFE69CF"];
+Nodo1714618310:P0 ->Nodo1040921922
+Nodo1003820315[label=" Nombre: Byron Apellido:  Orellana
+ Carnet: 8012206
+ PassWord Encriptada: 1942A3C6DFF2AEE890C4C61476ABB4E0"];
+Nodo1003820315->Nodo702632414
+Nodo702632414[label=" Nombre: Ricardo Apellido:  Cutz
+ Carnet: 201503476
+ PassWord Encriptada: EE36C9E45B2430C0F7C7A9B93054B9CD"];
+Nodo1714618310:P1 ->Nodo1003820315
+Nodo1490835435[label=" Nombre: Juanito Apellido:  Hernandez
+ Carnet: 201503477
+ PassWord Encriptada: CB87EC3C03CABE95031040784A2B04B6"];
+Nodo1714618310:P2 ->Nodo1490835435
+Nodo1067108503[label=" Nombre: Mario Apellido:  Lopez
+ Carnet: 201770733
+ PassWord Encriptada: A329D65FE5098E1B706D1D204400C2EC"];
+Nodo1714618310:P3 ->Nodo1067108503
+Nodo754220978[label=" Nombre: Close Apellido:  Cual
+ Carnet: 208950170
+ PassWord Encriptada: EE36C9E45B2430C0F7C7A9B93054B9CD"];
+Nodo1714618310:P5 ->Nodo754220978
+Nodo263763027[label=" Nombre: Nower Apellido:  Martinez
+ Carnet: 201509782
+ PassWord Encriptada: 4A874A0BD03C14935F7EBF709A941AF0"];
+Nodo1714618310:P7 ->Nodo263763027
+Nodo903993664[label=" Nombre: Walter Apellido:  Sereminio
+ Carnet: 798046523
+ PassWord Encriptada: 74C2B66751C9EB71A997B8AEC971083B"];
+Nodo1714618310:P8 ->Nodo903993664
+Nodo1557557531[label=" Nombre: Roberto Apellido:  Arzu
+ Carnet: 205978645
+ PassWord Encriptada: 015F91534857870668C29E755C9922DD"];
+Nodo1714618310:P10 ->Nodo1557557531
+Nodo1397787868[label=" Nombre: Martin Apellido:  Ricky
+ Carnet: 297842640
+ PassWord Encriptada: 281A66B1F4A1DED6214BDBD1A35F8E1F"];
+Nodo1714618310:P15 ->Nodo1397787868
+Nodo427864265[label=" Nombre: Muchs Apellido:  Datos
+ Carnet: 2011088766
+ PassWord Encriptada: AA3752584C9BF6FA88C6CD84DFAD3753"];
+Nodo1714618310:P21 ->Nodo427864265
+Nodo579883360[label=" Nombre: Antonio Apellido:  Hernandez
+ Carnet: 202005878
+ PassWord Encriptada: 64FEAC5736A8A00F66F92D8820CC4499"];
+Nodo1714618310:P23 ->Nodo579883360
+Nodo1302442624[label=" Nombre: Marquitos Apellido:  MArtinez
+ Carnet: 197835684
+ PassWord Encriptada: 91302D6022DDBFB9D11516A079813784"];
+Nodo1302442624->Nodo440463748
+Nodo440463748[label=" Nombre: Macos Apellido:  Cabrera
+ Carnet: 201789789
+ PassWord Encriptada: FDC4CDEF8ED8FBBC85738974662D1F95"];
+Nodo1714618310:P24 ->Nodo1302442624
+Nodo114953469[label=" Nombre: Eres Apellido:  Mi pensamiento
+ Carnet: 978465132
+ PassWord Encriptada: 1F012D16FD8D89DEB83CD67685E9BE8B"];
+Nodo1714618310:P27 ->Nodo114953469
+Nodo652301847[label=" Nombre: Swerto Apellido:  meeeee
+ Carnet: 605978535
+ PassWord Encriptada: A46433342F71988A3922BE1BE49D9E37"];
+Nodo1714618310:P30 ->Nodo652301847
+Nodo1712637433[label=" Nombre: Martha Apellido:  Alfaro
+ Carnet: 199748597
+ PassWord Encriptada: 5EBF8364D17C8DF7E4AFD586C24F84A0"];
+Nodo1714618310:P32 ->Nodo1712637433
 
 }
