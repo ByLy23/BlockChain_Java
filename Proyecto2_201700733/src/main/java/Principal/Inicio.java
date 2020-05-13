@@ -24,7 +24,8 @@ public class Inicio extends javax.swing.JFrame {
     public Inicio() throws Exception {
         initComponents();
         this.setLocationRelativeTo(null);
-        clases.bTree.insertar(new Libro(10, "Lea", "Ssombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
+        //System.out.println(datos.contains("el"));
+        /*clases.bTree.insertar(new Libro(10, "Lea", "Ssombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
         clases.bTree.insertar(new Libro(20, "wLa", "Sombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
         clases.bTree.insertar(new Libro(30, "La", "Somsbra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
         clases.bTree.insertar(new Libro(40, "Lna", "Sombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
@@ -48,7 +49,7 @@ public class Inicio extends javax.swing.JFrame {
         clases.arbolito.insertar("dato", clases.bTree);
         clases.arbolito.insertar("anaranjado", clases.bTree);
         clases.arbolito.insertar("zoor", clases.bTree);
-        clases.arbolito.colocarGrafo();
+        clases.arbolito.colocarGrafo();*/
     }
 
     /**
@@ -93,19 +94,19 @@ public class Inicio extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(21, Short.MAX_VALUE))
+                        .addComponent(user))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton3))))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,9 +116,9 @@ public class Inicio extends javax.swing.JFrame {
                     .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(pass, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -135,6 +136,7 @@ if(user.getText().equals("") || pass.getText().equals("")){
     try {
         boolean bandera= clases.tablita.buscarCredenciales(user.getText(), pass.getText());
         if(bandera){
+            clases.user=clases.tablita.modificarDatos(user.getText(), pass.getText());
             this.setVisible(false);
             new Menu().setVisible(true);
         }else{

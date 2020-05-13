@@ -38,7 +38,7 @@ public class tablaHash {
         else
              guardaUsuario[posicion].insertarInicio(new Usuario(numeroCarnet, nombre, apellido, carrera, pass));
         }else
-            System.out.println("Repetido");
+            JOptionPane.showMessageDialog(null, "Usuario Repetido");
     }
    
     private int F(int numeroCarnet){
@@ -130,9 +130,9 @@ public class tablaHash {
                     for (int j = 0; j < guardaUsuario[i].getTamanio(); j++) {
                        b+=("Nodo"+guardaUsuario[i].obtenerElemento(j).hashCode());
                         b+=("[label=\" Nombre: "+guardaUsuario[i].obtenerElemento(j).getNombre());
-                        b+=(" Apellido:  "+guardaUsuario[i].obtenerElemento(j).getApellido()+"\n");
-                        b+=(" Carnet: "+guardaUsuario[i].obtenerElemento(j).getCarnet()+"\n");
-                        b+=(" PassWord Encriptada: "+guardaUsuario[i].obtenerElemento(j).getContrasenia());
+                        b+=("\nApellido:  "+guardaUsuario[i].obtenerElemento(j).getApellido());
+                        b+=("\nCarnet: "+guardaUsuario[i].obtenerElemento(j).getCarnet());
+                        b+=("\nPassWord Encriptada: "+guardaUsuario[i].obtenerElemento(j).getContrasenia());
                         b+="\"];\n";
                         if((j+1)<guardaUsuario[i].getTamanio())
                             b+=("Nodo"+guardaUsuario[i].obtenerElemento(j).hashCode()+"->"+"Nodo"+guardaUsuario[i].obtenerElemento(j+1).hashCode()+"\n");

@@ -16,6 +16,7 @@ import EDD.tablaHash;
 public class Clases_Estaticas {
     public  arbolAVL arbolito;
     public static tablaHash tablita;
+    public static Usuario user;
     public  ArbolB bTree;//comentar esta, porque solo v a ir AVL y HAsh
     public Clases_Estaticas(){
         arbolito= new arbolAVL();
