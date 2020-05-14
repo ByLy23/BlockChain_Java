@@ -1,10 +1,4 @@
-digraph "GraficaAVL"{ nodo1695776037 [label= " amarillo
- Altura: 2"];nodo731687436 [label= " anaranjado
- Altura: 1"];nodo725078404 [label= " azul
- Altura: 3"];nodo1563183278 [label= " dato
- Altura: 2"];nodo598273147 [label= " zoor
- Altura: 1"]; nodo725078404->nodo1695776037
-nodo725078404->nodo1563183278
-nodo1695776037->nodo731687436
-nodo1563183278->nodo598273147
+digraph "GraficaAVL"{ nodo1614629854 [label= "  drama
+ Altura: 1"];nodo1608632588 [label= " juego
+ Altura: 0"]; nodo1614629854->nodo1608632588
  }

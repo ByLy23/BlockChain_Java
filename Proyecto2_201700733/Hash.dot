@@ -1,91 +1,96 @@
 digraph Hash{ 
  rankdir= LR
  node[shape=record, width= 0.1, height= 0.1];
-Nodo636597771[label="<P0>0|<P1>1|<P2>2|<P3>3|<P4>4|<P5>/5|<P6>6|<P7>/7|<P8>8|<P9>9|<P10>/10|<P11>11|<P12>/12|<P13>/13|<P14>/14|<P15>/15|<P16>16|<P17>/17|<P18>/18|<P19>/19|<P20>/20|<P21>/21|<P22>22|<P23>/23|<P24>24|<P25>25|<P26>/26|<P27>/27|<P28>28|<P29>/29|<P30>/30|<P31>31|<P32>/32|<P33>33|<P34>/34|<P35>/35|<P36>/36|<P37>/37|<P38>/38|<P39>/39|<P40>/40|<P41>/41|<P42>/42|<P43>/43|<P44>/44|<P45>/"];
-Nodo212754510[label=" Nombre: Maria
+Nodo1505843011[label="<P0>0|<P1>1|<P2>2|<P3>3|<P4>4|<P5>/5|<P6>6|<P7>/7|<P8>8|<P9>9|<P10>/10|<P11>11|<P12>/12|<P13>/13|<P14>/14|<P15>/15|<P16>16|<P17>/17|<P18>/18|<P19>/19|<P20>/20|<P21>/21|<P22>22|<P23>/23|<P24>24|<P25>25|<P26>/26|<P27>/27|<P28>28|<P29>/29|<P30>/30|<P31>31|<P32>/32|<P33>33|<P34>/34|<P35>/35|<P36>/36|<P37>/37|<P38>/38|<P39>/39|<P40>/40|<P41>/41|<P42>/42|<P43>/43|<P44>/44|<P45>/"];
+Nodo422298974[label=" Nombre: Maria
 Apellido:  Tahual
 Carnet: 201408795
 PassWord Encriptada: 8A58DDEAE256A394D481277A7FFE69CF"];
-Nodo636597771:P0 ->Nodo212754510
-Nodo1333981190[label=" Nombre: Byron
+Nodo1505843011:P0 ->Nodo422298974
+Nodo1631177338[label=" Nombre: Este es un nombre :v
+Apellido:  Con su apellido xD
+Carnet: 1
+PassWord Encriptada: 900150983CD24FB0D6963F7D28E17F72"];
+Nodo1631177338->Nodo1049980771
+Nodo1049980771[label=" Nombre: Byron
 Apellido:  Orellana
 Carnet: 8012206
 PassWord Encriptada: 1942A3C6DFF2AEE890C4C61476ABB4E0"];
-Nodo1333981190->Nodo747089350
-Nodo747089350[label=" Nombre: Ricardo
+Nodo1049980771->Nodo1841122493
+Nodo1841122493[label=" Nombre: Ricardo
 Apellido:  Cutz
 Carnet: 201503476
 PassWord Encriptada: EE36C9E45B2430C0F7C7A9B93054B9CD"];
-Nodo636597771:P1 ->Nodo1333981190
-Nodo74323891[label=" Nombre: Juanito
+Nodo1505843011:P1 ->Nodo1631177338
+Nodo721118561[label=" Nombre: Juanito
 Apellido:  Hernandez
 Carnet: 201503477
 PassWord Encriptada: CB87EC3C03CABE95031040784A2B04B6"];
-Nodo636597771:P2 ->Nodo74323891
-Nodo2076027744[label=" Nombre: Mario
+Nodo1505843011:P2 ->Nodo721118561
+Nodo87949406[label=" Nombre: Mario
 Apellido:  Lopez
 Carnet: 201770733
 PassWord Encriptada: A329D65FE5098E1B706D1D204400C2EC"];
-Nodo636597771:P3 ->Nodo2076027744
-Nodo602367697[label=" Nombre: Close
+Nodo1505843011:P3 ->Nodo87949406
+Nodo281385453[label=" Nombre: Close
 Apellido:  Cual
 Carnet: 208950170
 PassWord Encriptada: EE36C9E45B2430C0F7C7A9B93054B9CD"];
-Nodo636597771:P5 ->Nodo602367697
-Nodo849286902[label=" Nombre: Nower
+Nodo1505843011:P5 ->Nodo281385453
+Nodo387639276[label=" Nombre: Nower
 Apellido:  Martinez
 Carnet: 201509782
 PassWord Encriptada: 4A874A0BD03C14935F7EBF709A941AF0"];
-Nodo636597771:P7 ->Nodo849286902
-Nodo1178098841[label=" Nombre: Walter
+Nodo1505843011:P7 ->Nodo387639276
+Nodo1723553795[label=" Nombre: Walter
 Apellido:  Sereminio
 Carnet: 798046523
 PassWord Encriptada: 74C2B66751C9EB71A997B8AEC971083B"];
-Nodo636597771:P8 ->Nodo1178098841
-Nodo1346898325[label=" Nombre: Roberto
+Nodo1505843011:P8 ->Nodo1723553795
+Nodo326277242[label=" Nombre: Roberto
 Apellido:  Arzu
 Carnet: 205978645
 PassWord Encriptada: 015F91534857870668C29E755C9922DD"];
-Nodo636597771:P10 ->Nodo1346898325
-Nodo1216429219[label=" Nombre: Martin
+Nodo1505843011:P10 ->Nodo326277242
+Nodo793014536[label=" Nombre: Martin
 Apellido:  Ricky
 Carnet: 297842640
 PassWord Encriptada: 281A66B1F4A1DED6214BDBD1A35F8E1F"];
-Nodo636597771:P15 ->Nodo1216429219
-Nodo48479203[label=" Nombre: Muchs
+Nodo1505843011:P15 ->Nodo793014536
+Nodo1872873099[label=" Nombre: Muchs
 Apellido:  Datos
 Carnet: 2011088766
 PassWord Encriptada: AA3752584C9BF6FA88C6CD84DFAD3753"];
-Nodo636597771:P21 ->Nodo48479203
-Nodo104592306[label=" Nombre: Antonio
+Nodo1505843011:P21 ->Nodo1872873099
+Nodo1399255100[label=" Nombre: Antonio
 Apellido:  Hernandez
 Carnet: 202005878
 PassWord Encriptada: 64FEAC5736A8A00F66F92D8820CC4499"];
-Nodo636597771:P23 ->Nodo104592306
-Nodo372201025[label=" Nombre: Marquitos
+Nodo1505843011:P23 ->Nodo1399255100
+Nodo1422922594[label=" Nombre: Marquitos
 Apellido:  MArtinez
 Carnet: 197835684
 PassWord Encriptada: 91302D6022DDBFB9D11516A079813784"];
-Nodo372201025->Nodo1460278275
-Nodo1460278275[label=" Nombre: Macos
+Nodo1422922594->Nodo1485894849
+Nodo1485894849[label=" Nombre: Macos
 Apellido:  Cabrera
 Carnet: 201789789
 PassWord Encriptada: FDC4CDEF8ED8FBBC85738974662D1F95"];
-Nodo636597771:P24 ->Nodo372201025
-Nodo1210679714[label=" Nombre: Eres
+Nodo1505843011:P24 ->Nodo1422922594
+Nodo962917574[label=" Nombre: Eres
 Apellido:  Mi pensamiento
 Carnet: 978465132
 PassWord Encriptada: 1F012D16FD8D89DEB83CD67685E9BE8B"];
-Nodo636597771:P27 ->Nodo1210679714
-Nodo290868598[label=" Nombre: Swerto
+Nodo1505843011:P27 ->Nodo962917574
+Nodo1567032518[label=" Nombre: Swerto
 Apellido:  meeeee
 Carnet: 605978535
 PassWord Encriptada: A46433342F71988A3922BE1BE49D9E37"];
-Nodo636597771:P30 ->Nodo290868598
-Nodo2108136515[label=" Nombre: Martha
+Nodo1505843011:P30 ->Nodo1567032518
+Nodo158881547[label=" Nombre: Martha
 Apellido:  Alfaro
 Carnet: 199748597
 PassWord Encriptada: 5EBF8364D17C8DF7E4AFD586C24F84A0"];
-Nodo636597771:P32 ->Nodo2108136515
+Nodo1505843011:P32 ->Nodo158881547
 
 }

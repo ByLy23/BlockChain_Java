@@ -11,7 +11,7 @@ import EDD.ArbolB;
  *
  * @author byron
  */
-public class Categoria {
+public class Categoria implements Comparable<Categoria>{
 
     public String getNombreCategoria() {
         return nombreCategoria;
@@ -29,10 +29,35 @@ public class Categoria {
         this.arbolLibro = arbolLibro;
     }
 
-    public Categoria(String nombreCategoria, ArbolB arbolLibro) {
+    public Categoria(String nombreCategoria, ArbolB arbolLibro, String carnet) {
         this.nombreCategoria = nombreCategoria;
         this.arbolLibro = arbolLibro;
+        this.carnet= carnet;
     }
     String nombreCategoria;
     ArbolB arbolLibro;
+    String carnet;
+
+    public String getCarnet() {
+        return carnet;
+    }
+
+    public void setCarnet(String carnet) {
+        this.carnet = carnet;
+    }
+
+    @Override
+    public int compareTo(Categoria o) {
+        int resultado=0;
+        if(this.nombreCategoria.compareTo(o.nombreCategoria)<0){resultado=-1;}
+        else if(this.nombreCategoria.compareTo(o.nombreCategoria)>0){resultado=1;}
+        else{resultado=0;}
+        return resultado;
+    }
+    
+    /* int resultado=0;
+        if(this.ISBN<o.getISBN()){resultado=-1;}
+        else if(this.ISBN>o.getISBN()){resultado=1;}
+        else{resultado=0;}
+        return resultado;*/
 }

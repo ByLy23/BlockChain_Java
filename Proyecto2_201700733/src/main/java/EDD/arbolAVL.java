@@ -5,10 +5,13 @@
  */
 package EDD;
 
+import Principal.Categoria;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,7 +22,15 @@ public class arbolAVL {
       private NodoAVL izquierdo;
     private NodoAVL derecho;
     private int altura;
-    private String dato;
+
+        public Categoria getCategoria() {
+            return categoria;
+        }
+
+        public void setCategoria(Categoria categoria) {
+            this.categoria = categoria;
+        }
+    private Categoria categoria;
 
         public ArbolB getArbolito() {
             return arbolito;
@@ -33,13 +44,13 @@ public class arbolAVL {
     public NodoAVL(){
         izquierdo=null;
         derecho=null;
-        dato="";
+        categoria=null;
         arbolito=null;
         altura=0;
+        
     }
-    public NodoAVL(String dato, ArbolB arbolito){
-        this.dato=dato;
-        this.arbolito=arbolito;
+    public NodoAVL(Categoria categoria){
+        this.categoria=categoria;
         derecho=null;
         izquierdo=null;
         altura=0;
@@ -68,16 +79,17 @@ public class arbolAVL {
     public void setAltura(int altura) {
         this.altura = altura;
     }
-
-    public String getDato() {
-        return dato;
-    }
-
-    public void setDato(String dato) {
-        this.dato = dato;
-    }
     };
     NodoAVL raiz;
+
+    public int getTamanio() {
+        return tamanio;
+    }
+
+    public void setTamanio(int tamanio) {
+        this.tamanio = tamanio;
+    }
+    private int tamanio=0;
     public arbolAVL(){
         raiz=null;
     }
@@ -86,8 +98,9 @@ public class arbolAVL {
         return raiz;
     }
    
-    public void insertar(String dato, ArbolB arbolito) throws Exception{
-        raiz= insertarNodo(raiz,dato,arbolito);
+    public void insertar(Categoria dato) throws Exception{
+        raiz= insertarNodo(raiz,dato);
+        tamanio++;
     }
     private int alturaMaxima(int a, int b){
        return  (a>b) ? a : b;
@@ -140,19 +153,19 @@ public class arbolAVL {
         return n1;
     }
     
-    private NodoAVL insertarNodo(NodoAVL raiz, String dato, ArbolB arbolito) throws Exception{
+    private NodoAVL insertarNodo(NodoAVL raiz, Categoria dato) throws Exception{
         if(raiz==null){
-           raiz= new NodoAVL(dato,arbolito);
+           raiz= new NodoAVL(dato);
         }
-        else if(dato.compareTo(raiz.getDato())<0){
+        else if(dato.compareTo(raiz.getCategoria())<0){
             NodoAVL izquierdo;
-            izquierdo= insertarNodo(raiz.getIzquierdo(),dato,arbolito);
+            izquierdo= insertarNodo(raiz.getIzquierdo(),dato);
             raiz.setIzquierdo(izquierdo);
             //insertar izquierdo
         }
-        else if(dato.compareTo(raiz.getDato())>0){
+        else if(dato.compareTo(raiz.getCategoria())>0){
             NodoAVL derecho;
-            derecho= insertarNodo(raiz.getDerecho(),dato,arbolito);
+            derecho= insertarNodo(raiz.getDerecho(),dato);
             raiz.setDerecho(derecho);
             //insertarDerecho
         }
@@ -181,13 +194,17 @@ public class arbolAVL {
             }
        return raiz;
     }
+    
+    
+    
     String inicio="digraph \"GraficaAVL\"{";
     String enlaces="";
     String cuerpo="";
     private void graficar(NodoAVL nodo){
         if(nodo!=null){
             graficar(nodo.getIzquierdo());
-            cuerpo+= "nodo"+nodo.hashCode()+" [label= \" "+nodo.getDato()+"\n Altura: "+nodo.getAltura()+"\"];";
+            String alti= String.valueOf(nodo.getAltura()-1);
+            cuerpo+= "nodo"+nodo.hashCode()+" [label= \" "+nodo.getCategoria().getNombreCategoria()+"\n Altura: "+alti+"\"];";
             graficar(nodo.getDerecho());
         }
     }
@@ -216,28 +233,29 @@ public class arbolAVL {
         return actual;
     }
     private void actualizarNodo(NodoAVL raiz, NodoAVL temp){
-        raiz.setDato(temp.getDato());
+        raiz.setCategoria(temp.getCategoria());
     }
-    public NodoAVL borrarNodo(NodoAVL raiz, String dato, ArbolB arbolito)throws Exception{
+    public NodoAVL borrarNodo(NodoAVL raiz, String dato,int carnet)throws Exception{
         
         if(raiz==null){
             return raiz;
         }
-        else if(dato.compareTo(raiz.getDato())<0){
+        else if(dato.compareTo(raiz.getCategoria().getNombreCategoria())<0){
             NodoAVL izquierdo;
-            izquierdo= borrarNodo(raiz.getIzquierdo(),dato,raiz.getArbolito());
+            izquierdo= borrarNodo(raiz.getIzquierdo(),dato,carnet);
             raiz.setIzquierdo(izquierdo);
             //insertar izquierdo
         }
-        else if(dato.compareTo(raiz.getDato())>0){
+        else if(dato.compareTo(raiz.getCategoria().getNombreCategoria())>0){
             NodoAVL derecho;
-            derecho=borrarNodo(raiz.getDerecho(),dato,raiz.getArbolito());
+            derecho=borrarNodo(raiz.getDerecho(),dato,carnet);
             raiz.setDerecho(derecho);
             //insertarDerecho
         }
         else{
             NodoAVL reemplazo;
             reemplazo= raiz;
+            
               if ((raiz.getIzquierdo() == null) || (raiz.getDerecho() == null)) {
                 NodoAVL temp = null;
                 if (temp == raiz.getIzquierdo()) {
@@ -286,25 +304,52 @@ public class arbolAVL {
                    return  rotacionII(raiz);
             }      
         return raiz;
+        
+        
+        
+        
     }
-    public void eliminar(String dato, ArbolB arbolito) throws Exception{
-        raiz= borrarNodo(raiz,dato, arbolito);
+    boolean bandera=false;
+    public void eliminar(String dato,int carnet) throws Exception{     
+        buscarNodo(raiz, dato, carnet);
+        if(bandera){
+            System.out.println("vamo a borra");
+            raiz= borrarNodo(raiz,dato,carnet);}
+        else
+            JOptionPane.showMessageDialog(null, "Usted no es propietario de esta onda xD");
     }
+    private void buscarNodo(NodoAVL raiz, String categoria, int carnet){
+        if(raiz!=null){
+            String carne=String.valueOf(carnet);
+            if(raiz.getCategoria().getNombreCategoria().equals(categoria) &&raiz.getCategoria().getCarnet().equals(carne)){
+                bandera=true;
+                return;
+            }
+            buscarNodo(raiz.getIzquierdo(), categoria, carnet);
+            buscarNodo(raiz.getDerecho(), categoria, carnet);
+        }
+    }
+    
     public void inOrden(NodoAVL raiz, javax.swing.JLabel imagen) throws Exception{
         if (raiz!=null) {
             inOrden(raiz.getIzquierdo(),imagen);
-            System.out.print(raiz.getDato()+", ");
-            recorrido+=raiz.getDato()+",";
+            System.out.print(raiz.getCategoria().getNombreCategoria()+", ");
+            recorrido+=raiz.getCategoria().getNombreCategoria()+",";
             inOrden(raiz.getDerecho(),imagen);
         }
     }
-    public void preOrden(NodoAVL raiz, javax.swing.JLabel imagen) throws Exception{
+    public DefaultListModel lista= new DefaultListModel();
+    public void preOrden(NodoAVL raiz){
         if (raiz!=null) {
-            System.out.print(raiz.getDato()+", ");
-            recorrido+=raiz.getDato()+",";
-            preOrden(raiz.getIzquierdo(),imagen);
-            preOrden(raiz.getDerecho(),imagen);
+            System.out.print(raiz.getCategoria().getNombreCategoria()+", ");
+            recorrido+=raiz.getCategoria().getNombreCategoria()+",";
+            lista.addElement(raiz.getCategoria().getNombreCategoria());
+            preOrden(raiz.getIzquierdo());
+            preOrden(raiz.getDerecho());
         }
+    }
+    public void recorre(){
+        preOrden(raiz);
     }
 
     public String getRecorrido() {
@@ -319,8 +364,8 @@ public class arbolAVL {
         if (raiz!=null) {
             postOrden(raiz.getIzquierdo(),imagen);
             postOrden(raiz.getDerecho(),imagen);
-            System.out.print(raiz.getDato()+", ");
-            recorrido+=raiz.getDato()+",";
+            System.out.print(raiz.getCategoria().getNombreCategoria()+", ");
+            recorrido+=raiz.getCategoria().getNombreCategoria()+",";
         }
     }
     int contador=0;
@@ -342,5 +387,8 @@ public class arbolAVL {
         }
          String recorrido="";
         
+          
+         
+         
 }
     //metodos insertar, obtener altura, recorrer

@@ -25,7 +25,7 @@ public class Inicio extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         //System.out.println(datos.contains("el"));
-        /*clases.bTree.insertar(new Libro(10, "Lea", "Ssombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
+        clases.bTree.insertar(new Libro(10, "Lea", "Ssombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
         clases.bTree.insertar(new Libro(20, "wLa", "Sombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
         clases.bTree.insertar(new Libro(30, "La", "Somsbra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
         clases.bTree.insertar(new Libro(40, "Lna", "Sombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
@@ -43,8 +43,8 @@ public class Inicio extends javax.swing.JFrame {
         clases.bTree.insertar(new Libro(97, "Lza", "Sombra", "De", "Gray", "Unica", "Txodas", "Ingles", "13264"));
         clases.bTree.insertar(new Libro(17, "Lva", "Sombra", "De", "Gray", "Unica", "Txodas", "Ingles", "13264"));
         clases.bTree.insertar(new Libro(10, "Lxa", "Sombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
-        clases.bTree.imprimirNodo();
-        clases.arbolito.insertar("azul", clases.bTree);
+        clases.bTree.imprimirNodo();/*
+        clases.arbolito.insertar(new Categoria);
         clases.arbolito.insertar("amarillo", clases.bTree);
         clases.arbolito.insertar("dato", clases.bTree);
         clases.arbolito.insertar("anaranjado", clases.bTree);

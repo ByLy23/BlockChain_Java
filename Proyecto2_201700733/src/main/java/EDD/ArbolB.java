@@ -22,10 +22,18 @@ public class ArbolB  {
     private int maxRamasTamanio = maxClavetamanio + 1; 
     
     private Nodo raiz = null;
+
+    public int getTamanio() {
+        return tamanio;
+    }
+
+    public void setTamanio(int tamanio) {
+        this.tamanio = tamanio;
+    }
     private int tamanio = 0;
     
-    public ArbolB(int orden) {
-        this.minClavetamanio = orden;
+    public ArbolB(int minOrden) {
+        this.minClavetamanio = minOrden;
         this.minRamasTamanio = minClavetamanio + 1;
         this.maxClavetamanio = 2 * minClavetamanio;
         this.maxRamasTamanio = maxClavetamanio + 1;
@@ -72,8 +80,6 @@ public class ArbolB  {
                     nodo = nodo.getRama(0);
                     continue;
                 }
-
-                // Greater
                 int numeroClaves = nodo.numeroClaves();
                 int ultimo = numeroClaves - 1;
                 Libro mayor = nodo.getClave(ultimo);

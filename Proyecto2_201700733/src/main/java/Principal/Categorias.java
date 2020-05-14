@@ -5,6 +5,14 @@
  */
 package Principal;
 
+import EDD.ArbolB;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollBar;
+import javax.swing.ListModel;
+
 /**
  *
  * @author byron
@@ -14,12 +22,24 @@ public class Categorias extends javax.swing.JFrame {
     /**
      * Creates new form Categorias
      */
+    ArbolB nuevo;
+    DefaultListModel lista;
     public Categorias() {
         initComponents();
+        lista= new DefaultListModel();
+        /*
+        DefaultListModel lista= new DefaultListModel();
+        for (int i = 0; i < 100; i++) {
+            lista.addElement("item "+i);
+        }
+        catego.setModel(lista);*/
+        actualizarLista();
+        catego.add(new JScrollBar());
         this.setLocationRelativeTo(null);
         carnetio.setText(String.valueOf(Clases_Estaticas.user.getCarnet()));
         userio.setText(Clases_Estaticas.user.getNombre()+" "+Clases_Estaticas.user.getApellido());
         carrera.setText(Clases_Estaticas.user.getCarrera());
+        
     }
 
     /**
@@ -34,6 +54,13 @@ public class Categorias extends javax.swing.JFrame {
         userio = new javax.swing.JLabel();
         carnetio = new javax.swing.JLabel();
         carrera = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        catego = new javax.swing.JList<>();
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        tex = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,16 +70,59 @@ public class Categorias extends javax.swing.JFrame {
 
         carrera.setText("Aca hay una Carrera");
 
+        jScrollPane1.setViewportView(catego);
+
+        jButton1.setText("Regresar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Categorias Disponibles");
+
+        jButton2.setText("Crear");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Eliminar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        tex.setText(" ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(carrera, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
                     .addComponent(userio)
                     .addComponent(carnetio)
-                    .addComponent(carrera))
-                .addGap(0, 300, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(tex, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton3))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(jButton1)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -61,14 +131,70 @@ public class Categorias extends javax.swing.JFrame {
                 .addComponent(userio)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(carnetio)
-                .addGap(8, 8, 8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(carrera)
-                .addContainerGap(233, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1)
+                .addGap(4, 4, 4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton3)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tex, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)
+                        .addContainerGap())))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.setVisible(false);
+       new Menu().setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+nuevo= new ArbolB(2);
+if(tex.getText().equals("")){
+    JOptionPane.showMessageDialog(null, "No hay datos");
+}
+else{
+    try {
+        Clases_Estaticas.arbolito.insertar(new Categoria(tex.getText(), nuevo, String.valueOf( Clases_Estaticas.user.getCarnet())));
+        actualizarLista();
+        Clases_Estaticas.arbolito.colocarGrafo();
+        JOptionPane.showMessageDialog(null, "Categoria Agregada");
+        tex.setText("");
+    } catch (Exception ex) {
+        Logger.getLogger(Categorias.class.getName()).log(Level.SEVERE, null, ex);
+    }
+}
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+if(!tex.getText().equals("")){
+    try {
+        Clases_Estaticas.arbolito.eliminar(tex.getText(),Clases_Estaticas.user.getCarnet());
+        actualizarLista();
+        Clases_Estaticas.arbolito.colocarGrafo();
+        JOptionPane.showMessageDialog(null, "Categoria Eliminada");
+        tex.setText("");
+    } catch (Exception ex) {
+        Logger.getLogger(Categorias.class.getName()).log(Level.SEVERE, null, ex);
+    }
+}
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void actualizarLista(){
+        lista.clear();
+        Clases_Estaticas.arbolito.recorre();
+        lista= Clases_Estaticas.arbolito.lista;
+                catego.setModel(lista);
+    }
     /**
      * @param args the command line arguments
      */
@@ -103,10 +229,18 @@ public class Categorias extends javax.swing.JFrame {
             }
         });
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel carnetio;
     private javax.swing.JLabel carrera;
+    private javax.swing.JList<String> catego;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField tex;
     private javax.swing.JLabel userio;
     // End of variables declaration//GEN-END:variables
 }
