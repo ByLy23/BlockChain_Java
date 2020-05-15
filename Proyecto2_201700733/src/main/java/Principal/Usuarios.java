@@ -347,11 +347,11 @@ try{
         JFileChooser archivo= new JFileChooser();
         FileNameExtensionFilter filter= new FileNameExtensionFilter("JSON", "json");
         archivo.setFileFilter(filter);
-        int seleccion= archivo.showOpenDialog(jPanel1);
+        int seleccion= archivo.showOpenDialog(this);
         if(seleccion== JFileChooser.APPROVE_OPTION){
             File fichero= archivo.getSelectedFile();
             try{
-                Scanner salida= new Scanner(fichero);
+                Scanner salida= new Scanner(fichero,"UTF-8");
                 while(salida.hasNextLine()){
                     texto+=salida.nextLine();
                 }

@@ -164,7 +164,7 @@ if(tex.getText().equals("")){
 }
 else{
     try {
-        Clases_Estaticas.arbolito.insertar(new Categoria(tex.getText(), nuevo, String.valueOf( Clases_Estaticas.user.getCarnet())));
+        Clases_Estaticas.arbolito.insertar(new Categoria(tex.getText(), nuevo,Clases_Estaticas.user.getCarnet()));
         actualizarLista();
         Clases_Estaticas.arbolito.colocarGrafo();
         JOptionPane.showMessageDialog(null, "Categoria Agregada");

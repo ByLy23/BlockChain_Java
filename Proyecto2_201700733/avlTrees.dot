@@ -1,4 +1,6 @@
-digraph "GraficaAVL"{ nodo1614629854 [label= "  drama
- Altura: 1"];nodo1608632588 [label= " juego
- Altura: 0"]; nodo1614629854->nodo1608632588
+digraph "GraficaAVL"{ nodo1223128440 [label= "  as
+ Altura: 0"];nodo449273508 [label= "  casa
+ Altura: 1"];nodo1270478140 [label= " drama
+ Altura: 0"]; nodo449273508->nodo1223128440
+nodo449273508->nodo1270478140
  }

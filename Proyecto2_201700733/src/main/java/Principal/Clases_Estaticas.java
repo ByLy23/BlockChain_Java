@@ -17,10 +17,8 @@ public class Clases_Estaticas {
     public  static arbolAVL arbolito;
     public static tablaHash tablita;
     public static Usuario user;
-    public  ArbolB bTree;//comentar esta, porque solo v a ir AVL y HAsh
     public Clases_Estaticas(){
         arbolito= new arbolAVL();
-        bTree= new ArbolB(2);
         tablita= new tablaHash();
     }
 }

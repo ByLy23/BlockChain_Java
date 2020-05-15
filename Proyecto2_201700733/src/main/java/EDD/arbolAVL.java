@@ -6,6 +6,8 @@
 package EDD;
 
 import Principal.Categoria;
+import Principal.Clases_Estaticas;
+import Principal.Libro;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -44,8 +46,8 @@ public class arbolAVL {
     public NodoAVL(){
         izquierdo=null;
         derecho=null;
-        categoria=null;
-        arbolito=null;
+        categoria=new Categoria();
+        arbolito=new ArbolB(2);
         altura=0;
         
     }
@@ -53,9 +55,9 @@ public class arbolAVL {
         this.categoria=categoria;
         derecho=null;
         izquierdo=null;
+        arbolito= new ArbolB(2);
         altura=0;
     }
-    
     public NodoAVL getIzquierdo() {
         return izquierdo;
     }
@@ -304,10 +306,41 @@ public class arbolAVL {
                    return  rotacionII(raiz);
             }      
         return raiz;
-        
-        
-        
-        
+    }
+       public void verificarLibro(Libro libro) throws Exception{
+           buscarLibro(raiz, libro.getCategoria());
+        if(bandera){
+            agregarLibro(libro);
+        }else{
+            insertar(new Categoria(libro.getCategoria(), new ArbolB(2), Clases_Estaticas.user.getCarnet()));
+            agregarLibro(libro);
+        }
+        bandera=false;
+    }
+       private void agregarLibro(Libro libro){
+          agregaLibro(raiz,libro);
+       }
+       private void agregaLibro(NodoAVL raiz, Libro libro){
+            if(raiz!=null){
+                if(raiz.getCategoria().getNombreCategoria().equals(libro.getCategoria())){
+                    ArbolB escribir= raiz.getArbolito();
+                    escribir.insertar(libro);
+                return;
+                }
+            agregaLibro(raiz.getIzquierdo(), libro);
+            agregaLibro(raiz.getDerecho(),libro);
+            }
+           
+       }
+       private void buscarLibro(NodoAVL raiz, String categoria){
+        if(raiz!=null){
+            if(raiz.getCategoria().getNombreCategoria().equals(categoria)){
+                bandera=true;
+                return;
+            }
+            buscarLibro(raiz.getIzquierdo(), categoria);
+            buscarLibro(raiz.getDerecho(), categoria);
+        }
     }
     boolean bandera=false;
     public void eliminar(String dato,int carnet) throws Exception{     
@@ -317,11 +350,11 @@ public class arbolAVL {
             raiz= borrarNodo(raiz,dato,carnet);}
         else
             JOptionPane.showMessageDialog(null, "Usted no es propietario de esta onda xD");
+        bandera=false;
     }
     private void buscarNodo(NodoAVL raiz, String categoria, int carnet){
         if(raiz!=null){
-            String carne=String.valueOf(carnet);
-            if(raiz.getCategoria().getNombreCategoria().equals(categoria) &&raiz.getCategoria().getCarnet().equals(carne)){
+            if(raiz.getCategoria().getNombreCategoria().equals(categoria) &&raiz.getCategoria().getCarnet()==carnet){
                 bandera=true;
                 return;
             }
@@ -386,9 +419,5 @@ public class arbolAVL {
             System.out.println(fingrafo);
         }
          String recorrido="";
-        
-          
-         
-         
 }
     //metodos insertar, obtener altura, recorrer

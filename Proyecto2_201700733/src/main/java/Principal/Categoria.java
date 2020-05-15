@@ -29,20 +29,27 @@ public class Categoria implements Comparable<Categoria>{
         this.arbolLibro = arbolLibro;
     }
 
-    public Categoria(String nombreCategoria, ArbolB arbolLibro, String carnet) {
+    public Categoria(String nombreCategoria, ArbolB arbolLibro, int carnet) {
         this.nombreCategoria = nombreCategoria;
         this.arbolLibro = arbolLibro;
         this.carnet= carnet;
     }
+
+    public Categoria() {
+        nombreCategoria="";
+        arbolLibro= new ArbolB(2);
+        carnet=0;
+    }
+    
     String nombreCategoria;
     ArbolB arbolLibro;
-    String carnet;
+    int carnet;
 
-    public String getCarnet() {
+    public int getCarnet() {
         return carnet;
     }
 
-    public void setCarnet(String carnet) {
+    public void setCarnet(int carnet) {
         this.carnet = carnet;
     }
 

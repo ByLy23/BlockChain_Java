@@ -25,7 +25,7 @@ public class Inicio extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         //System.out.println(datos.contains("el"));
-        clases.bTree.insertar(new Libro(10, "Lea", "Ssombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
+        /*clases.bTree.insertar(new Libro(10, "Lea", "Ssombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
         clases.bTree.insertar(new Libro(20, "wLa", "Sombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
         clases.bTree.insertar(new Libro(30, "La", "Somsbra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));
         clases.bTree.insertar(new Libro(40, "Lna", "Sombra", "De", "Gray", "Unica", "Todas", "Ingles", "13264"));

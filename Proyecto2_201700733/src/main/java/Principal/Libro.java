@@ -43,19 +43,19 @@ public class Libro implements Comparable<Libro>{
         this.editorial = editorial;
     }
 
-    public String getAnio() {
+    public int getAnio() {
         return anio;
     }
 
-    public void setAnio(String anio) {
+    public void setAnio(int anio) {
         this.anio = anio;
     }
 
-    public String getEdicion() {
+    public int getEdicion() {
         return edicion;
     }
 
-    public void setEdicion(String edicion) {
+    public void setEdicion(int edicion) {
         this.edicion = edicion;
     }
 
@@ -75,15 +75,15 @@ public class Libro implements Comparable<Libro>{
         this.idioma = idioma;
     }
 
-    public String getCarnetUsuario() {
+    public int getCarnetUsuario() {
         return carnetUsuario;
     }
 
-    public void setCarnetUsuario(String carnetUsuario) {
+    public void setCarnetUsuario(int carnetUsuario) {
         this.carnetUsuario = carnetUsuario;
     }
 
-    public Libro(int ISBN, String titulo, String autor, String editorial, String anio, String edicion, String categoria, String idioma, String carnetUsuario) {
+    public Libro(int ISBN, String titulo, String autor, String editorial, int anio, int edicion, String categoria, String idioma, int carnetUsuario) {
         this.ISBN = ISBN;
         this.titulo = titulo;
         this.autor = autor;
@@ -98,11 +98,11 @@ public class Libro implements Comparable<Libro>{
     private String titulo;
     private String autor;
     private String editorial;
-    private String anio;
-    private String edicion;
+    private int anio;
+    private int edicion;
     private String categoria;
     private String idioma;
-    private String carnetUsuario;
+    private int carnetUsuario;
 
     @Override
     public int compareTo(Libro o) {

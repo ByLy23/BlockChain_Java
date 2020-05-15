@@ -275,7 +275,6 @@ public Libro eliminar(Libro dato) {
             }
 
             if (izquierdaV != null && izquierdaVTamanio > minClavetamanio) {
-                // Try to borrow from izquierda v
                 Libro eliminarDato = izquierdaV.getClave(izquierdaV.numeroClaves() - 1);
                 int prev = getIndexSiguienteDato(padre, eliminarDato);
                 Libro padreDato = padre.eliminarClave(prev);
@@ -361,7 +360,6 @@ public Libro eliminar(Libro dato) {
     private boolean validarNodo(Nodo nodo) {
         int clavetamanio = nodo.numeroClaves();
         if (clavetamanio > 1) {
-            // Make sure the claves are sorted
             for (int i = 1; i < clavetamanio; i++) {
                 Libro p = nodo.getClave(i - 1);
                 Libro n = nodo.getClave(i);
@@ -371,21 +369,16 @@ public Libro eliminar(Libro dato) {
         }
         int ramasTamanio = nodo.numeroRamas();
         if (nodo.padre == null) {
-            // raiz
             if (clavetamanio > maxClavetamanio) {
-                // check max clave tamanio. raiz does not have a min clave tamanio
                 return false;
             } else if (ramasTamanio == 0) {
-                // if raiz, no ramas, and claves are valid
                 return true;
             } else if (ramasTamanio < 2) {
-                // raiz should have zero or at least two ramas
                 return false;
             } else if (ramasTamanio > maxRamasTamanio) {
                 return false;
             }
         } else {
-            // non-raiz
             if (clavetamanio < minClavetamanio) {
                 return false;
             } else if (clavetamanio > maxClavetamanio) {
@@ -393,8 +386,6 @@ public Libro eliminar(Libro dato) {
             } else if (ramasTamanio == 0) {
                 return true;
             } else if (clavetamanio != (ramasTamanio - 1)) {
-                // If there are chilren, there should be one more rama then
-                // claves
                 return false;
             } else if (ramasTamanio < minRamasTamanio) {
                 return false;
@@ -559,7 +550,6 @@ public Libro eliminar(Libro dato) {
                     found = true;
                     eliminars = claves[i];
                 } else if (found) {
-                    // shift the rest of the claves down
                     claves[i - 1] = claves[i];
                 }
             }
@@ -575,7 +565,6 @@ public Libro eliminar(Libro dato) {
                 return null;
             Libro dato = claves[index];
             for (int i = index + 1; i < clavesTamanio; i++) {
-                // shift the rest of the claves down
                 claves[i - 1] = claves[i];
             }
             clavesTamanio--;
@@ -616,7 +605,6 @@ public Libro eliminar(Libro dato) {
                 if (ramas[i].equals(rama)) {
                     encontrado = true;
                 } else if (encontrado) {
-                    // shift the rest of the claves down
                     ramas[i - 1] = ramas[i];
                 }
             }
@@ -633,7 +621,6 @@ public Libro eliminar(Libro dato) {
             Nodo dato = ramas[index];
             ramas[index] = null;
             for (int i = index + 1; i < ramasTamanio; i++) {
-                // shift the rest of the claves down
                 ramas[i - 1] = ramas[i];
             }
             ramasTamanio--;
@@ -711,8 +698,5 @@ int contador=0;
     }
       System.out.println(b);
   }
-  
-  
-
 */
 }
