@@ -1,6 +1,30 @@
-digraph "GraficaAVL"{ nodo1223128440 [label= "  as
- Altura: 0"];nodo449273508 [label= "  casa
- Altura: 1"];nodo1270478140 [label= " drama
- Altura: 0"]; nodo449273508->nodo1223128440
-nodo449273508->nodo1270478140
+digraph "GraficaAVL"{ nodo672699547 [label= " Biografia
+ Altura: 0
+ CantidadLibros: 3"];nodo111119991 [label= " Consulta
+ Altura: 2
+ CantidadLibros: 12"];nodo1594014536 [label= " Drama
+ Altura: 0
+ CantidadLibros: 16"];nodo753852048 [label= " Ensayo
+ Altura: 1
+ CantidadLibros: 12"];nodo1086208986 [label= " Informativos
+ Altura: 3
+ CantidadLibros: 19"];nodo975759756 [label= " Literatura
+ Altura: 0
+ CantidadLibros: 9"];nodo1882901882 [label= " Lírico
+ Altura: 2
+ CantidadLibros: 13"];nodo721065907 [label= " Revista
+ Altura: 0
+ CantidadLibros: 6"];nodo455809501 [label= " Sagas
+ Altura: 1
+ CantidadLibros: 2"];nodo1714612157 [label= " Épico
+ Altura: 0
+ CantidadLibros: 8"]; nodo1086208986->nodo111119991
+nodo1086208986->nodo1882901882
+nodo111119991->nodo672699547
+nodo111119991->nodo753852048
+nodo753852048->nodo1594014536
+nodo1882901882->nodo975759756
+nodo1882901882->nodo455809501
+nodo455809501->nodo721065907
+nodo455809501->nodo1714612157
  }

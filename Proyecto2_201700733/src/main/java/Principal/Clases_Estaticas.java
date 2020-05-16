@@ -10,6 +10,7 @@ import EDD.ListaEnlazada;
 import EDD.arbolAVL;
 import EDD.tablaHash;
 import javax.swing.DefaultListModel;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -21,9 +22,11 @@ public class Clases_Estaticas {
     public static Usuario user;
     public static DefaultListModel modelo;
     public static ListaEnlazada<Integer> libtos;
+    public static DefaultListModel cajita;
     public Clases_Estaticas(){
         arbolito= new arbolAVL();
         modelo= new DefaultListModel();
+        cajita= new DefaultListModel();
         tablita= new tablaHash();
     }
 }

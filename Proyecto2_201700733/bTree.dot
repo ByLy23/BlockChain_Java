@@ -1,15 +1,14 @@
 digraph Btree{ 
   node[shape=record, width= 0.1, height= 0.1];
-Nodo934204604[label="<P0>|10, Lea|<P1>|30, La|<P2>|56, aLa|<P3>|91, La|<P4>"];
-Nodo2145492237[label="<P0>|1, La|<P1>|7, Lza|<P2>|9, Lsa|<P3>|10, Lxa|<P4>"];
-Nodo934204604:P0->Nodo2145492237;
-Nodo609984004[label="<P0>|13, Laa|<P1>|17, Lva|<P2>|20, wLa|<P3>"];
-Nodo934204604:P1->Nodo609984004;
-Nodo1121006762[label="<P0>|40, Lna|<P1>|50, Lsa|<P2>"];
-Nodo934204604:P2->Nodo1121006762;
-Nodo60494712[label="<P0>|65, Laa|<P1>|90, Lsa|<P2>"];
-Nodo934204604:P3->Nodo60494712;
-Nodo1885470707[label="<P0>|97, Lza|<P1>|568, Lza|<P2>|901, Laa|<P3>"];
-Nodo934204604:P4->Nodo1885470707;
+Nodo688378379[label="<P0>|10828, ISO 9000; auditorías internas de la calidad en la pequeña y mediana empresa|<P1>"];
+Nodo590307465[label="<P0>|10826, Las Claves de la eficacia empresarial; un reto a los empresarios Españoles|<P1>|10827, La Fe explicada / Leo J. Trese.|<P2>"];
+Nodo688378379:P0->Nodo590307465;
+Nodo1083811435[label="<P0>|10894, Introducción al estudio de la música|<P1>|10896, Sociología de la educación|<P2>|10902, El hombre y el dinero: (vistos a la luz de la enseñanza de la Biblia y el Evangelio) / Jacques Ellul ; versión castellana Juan Gil Albert.|<P3>"];
+Nodo688378379:P1->Nodo1083811435;
+Nodo688378379[label="<P0>|10828, ISO 9000; auditorías internas de la calidad en la pequeña y mediana empresa|<P1>"];
+Nodo590307465[label="<P0>|10826, Las Claves de la eficacia empresarial; un reto a los empresarios Españoles|<P1>|10827, La Fe explicada / Leo J. Trese.|<P2>"];
+Nodo688378379:P0->Nodo590307465;
+Nodo1083811435[label="<P0>|10894, Introducción al estudio de la música|<P1>|10896, Sociología de la educación|<P2>|10902, El hombre y el dinero: (vistos a la luz de la enseñanza de la Biblia y el Evangelio) / Jacques Ellul ; versión castellana Juan Gil Albert.|<P3>"];
+Nodo688378379:P1->Nodo1083811435;
 
 }

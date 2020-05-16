@@ -180,7 +180,6 @@ if(!tex.getText().equals("")){
     try {
         Clases_Estaticas.arbolito.eliminar(tex.getText(),Clases_Estaticas.user.getCarnet());
         actualizarLista();
-        Clases_Estaticas.arbolito.colocarGrafo();
         JOptionPane.showMessageDialog(null, "Categoria Eliminada");
         tex.setText("");
     } catch (Exception ex) {
