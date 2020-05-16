@@ -112,6 +112,9 @@ public class ListaEnlazada<T> {
             tamanio++;
         }
     }
+    public void limpiar(){
+        inicio=fin=null;
+    }
     public T eliminar(int index){
         T informacion=null;
         if(inicio==fin){

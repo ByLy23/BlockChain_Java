@@ -106,8 +106,13 @@ public class Libros extends javax.swing.JFrame {
         });
 
         jButton5.setText("Eliminar por ISBN");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
-        jButton6.setText("Buscar por nombre para eliminar");
+        jButton6.setText("Buscar por Titulo de libro");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -303,8 +308,23 @@ Libro librito= new Libro(Integer.parseInt(isbn.getText()), titulo.getText(), aut
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+Clases_Estaticas.modelo.clear();
+try{
+    Clases_Estaticas.arbolito.mostrarLibros(elimNom.getText());
+    listaLibros.setModel(Clases_Estaticas.modelo);
+}catch(Exception ex){
+    System.out.println(ex);
+}
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+try{
+    Clases_Estaticas.arbolito.eliminarLibro(Integer.parseInt(elimISBN.getText()));
+    //OptionPane.showMessageDialog(null, "Libro Eliminado");
+}catch(Exception ex){
+    System.out.println(ex);   
+}
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     private void limpiar(){
         categoria.setText("");

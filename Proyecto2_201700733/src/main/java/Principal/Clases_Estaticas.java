@@ -6,8 +6,10 @@
 package Principal;
 
 import EDD.ArbolB;
+import EDD.ListaEnlazada;
 import EDD.arbolAVL;
 import EDD.tablaHash;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -17,8 +19,11 @@ public class Clases_Estaticas {
     public  static arbolAVL arbolito;
     public static tablaHash tablita;
     public static Usuario user;
+    public static DefaultListModel modelo;
+    public static ListaEnlazada<Integer> libtos;
     public Clases_Estaticas(){
         arbolito= new arbolAVL();
+        modelo= new DefaultListModel();
         tablita= new tablaHash();
     }
 }

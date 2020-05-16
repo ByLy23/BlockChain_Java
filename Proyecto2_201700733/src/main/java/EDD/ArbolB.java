@@ -5,6 +5,7 @@
  */
 package EDD;
 
+import Principal.Clases_Estaticas;
 import Principal.Libro;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -428,7 +429,51 @@ public Libro eliminar(Libro dato) {
         return nodo;
     }
      
+     public boolean eliminarLibro(int isbn){
+         buscarLibro(isbn);
+         Libro aux= libroEliminar;
+         if(aux!=null){
+             eliminar(aux);
+             return true;
+         }
+         else
+             return false;
+     }
+     Libro libroEliminar= null;
+     Libro buscarL=null;
+     private void buscarLibro(int isbn){
+         buscarLibro(raiz, isbn);
+     }
+     public void buscarLibros(String testo){
+         buscarLibros(raiz, testo);
+     }
+     private void buscarLibros(Nodo raiz, String testo){
+         if(raiz!=null){
+             for (int i = 0; i < raiz.clavesTamanio; i++) {
+                 if(raiz.claves[i].getTitulo().contains(testo)){
+                     Clases_Estaticas.modelo.addElement("[**ISBN**]: "+raiz.claves[i].getISBN()+" [**TITULO**]: "+raiz.claves[i].getTitulo()+ " [**EDICION**]: "+raiz.claves[i].getEdicion()+" [**EDITORIAL**]: "+raiz.claves[i].getEditorial()+" [**AUTOR**]: "+raiz.claves[i].getAutor()+" [**CATEGORIA**]: "+raiz.claves[i].getCategoria()+" [**IDIOMA**]: "+raiz.claves[i].getIdioma()+" [**ANIO**]: "+raiz.claves[i].getAnio());
+                     break;
+                 }
+             }
+             for (int i = 0; i < raiz.ramasTamanio; i++) {
+                 buscarLibros(raiz.ramas[i], testo);
+             }
+         }
+     }
      
+     private void buscarLibro(Nodo raiz, int isbn){
+         if(raiz!=null){
+             for (int i = 0; i < raiz.clavesTamanio; i++) {
+                 if(raiz.claves[i].getISBN()==isbn && raiz.claves[i].getCarnetUsuario()==Clases_Estaticas.user.getCarnet()){
+                     libroEliminar= raiz.claves[i];
+                     break;
+                 }
+             }
+             for (int i = 0; i < raiz.ramasTamanio; i++) {
+                 buscarLibro(raiz.ramas[i], isbn);
+             }
+         }
+     }
       public void imprimirNodo() throws IOException, InterruptedException{
             imprimirRaiz(this.raiz);
         }

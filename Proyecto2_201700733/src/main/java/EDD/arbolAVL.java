@@ -343,6 +343,42 @@ public class arbolAVL {
         }
     }
     boolean bandera=false;
+    boolean bandera2=false;
+    public void mostrarLibros(String tex){
+        mostrarLibros(raiz, tex);
+    }
+    private void mostrarLibros(NodoAVL raiz, String testo){
+        if(raiz!=null){
+            raiz.getArbolito().buscarLibros(testo);
+            mostrarLibros(raiz.getIzquierdo(), testo);
+            mostrarLibros(raiz.getDerecho(), testo);
+        }
+    }
+       public void eliminarLibro(int isbn){
+           eliminarLibro(raiz, isbn);
+           if(!bandera2){
+               JOptionPane.showMessageDialog(null, "No se puede eliminar");
+           }else{
+               JOptionPane.showMessageDialog(null, "Libro eliminado");
+           }
+           bandera2=false;
+           salir=0;
+       }
+       int salir=0;
+       private void eliminarLibro(NodoAVL raiz, int isbn){
+           if(raiz!=null){
+               bandera= raiz.getArbolito().eliminarLibro(isbn);
+               if(!bandera){
+                   if(salir==0){
+                   eliminarLibro(raiz.getIzquierdo(), isbn);
+                   eliminarLibro(raiz.getDerecho(), isbn);
+                   }
+               }else{
+                   salir=1;
+                   bandera2=true;
+               }
+           }
+       }
     public void eliminar(String dato,int carnet) throws Exception{     
         buscarNodo(raiz, dato, carnet);
         if(bandera){
