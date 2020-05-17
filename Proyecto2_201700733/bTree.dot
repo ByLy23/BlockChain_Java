@@ -1,14 +1,9 @@
 digraph Btree{ 
   node[shape=record, width= 0.1, height= 0.1];
-Nodo688378379[label="<P0>|10828, ISO 9000; auditorías internas de la calidad en la pequeña y mediana empresa|<P1>"];
-Nodo590307465[label="<P0>|10826, Las Claves de la eficacia empresarial; un reto a los empresarios Españoles|<P1>|10827, La Fe explicada / Leo J. Trese.|<P2>"];
-Nodo688378379:P0->Nodo590307465;
-Nodo1083811435[label="<P0>|10894, Introducción al estudio de la música|<P1>|10896, Sociología de la educación|<P2>|10902, El hombre y el dinero: (vistos a la luz de la enseñanza de la Biblia y el Evangelio) / Jacques Ellul ; versión castellana Juan Gil Albert.|<P3>"];
-Nodo688378379:P1->Nodo1083811435;
-Nodo688378379[label="<P0>|10828, ISO 9000; auditorías internas de la calidad en la pequeña y mediana empresa|<P1>"];
-Nodo590307465[label="<P0>|10826, Las Claves de la eficacia empresarial; un reto a los empresarios Españoles|<P1>|10827, La Fe explicada / Leo J. Trese.|<P2>"];
-Nodo688378379:P0->Nodo590307465;
-Nodo1083811435[label="<P0>|10894, Introducción al estudio de la música|<P1>|10896, Sociología de la educación|<P2>|10902, El hombre y el dinero: (vistos a la luz de la enseñanza de la Biblia y el Evangelio) / Jacques Ellul ; versión castellana Juan Gil Albert.|<P3>"];
-Nodo688378379:P1->Nodo1083811435;
+Nodo930450524[label="<P0>|10828, ISO 9000; auditorías internas de la calidad en la pequeña y mediana empresa|<P1>"];
+Nodo2050366575[label="<P0>|10826, Las Claves de la eficacia empresarial; un reto a los empresarios Españoles|<P1>|10827, La Fe explicada / Leo J. Trese.|<P2>"];
+Nodo930450524:P0->Nodo2050366575;
+Nodo2045336358[label="<P0>|10894, Introducción al estudio de la música|<P1>|10896, Sociología de la educación|<P2>|10902, El hombre y el dinero: (vistos a la luz de la enseñanza de la Biblia y el Evangelio) / Jacques Ellul ; versión castellana Juan Gil Albert.|<P3>"];
+Nodo930450524:P1->Nodo2045336358;
 
 }
