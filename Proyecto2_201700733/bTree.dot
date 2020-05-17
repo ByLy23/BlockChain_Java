@@ -1,9 +1,13 @@
 digraph Btree{ 
   node[shape=record, width= 0.1, height= 0.1];
-Nodo930450524[label="<P0>|10828, ISO 9000; auditorías internas de la calidad en la pequeña y mediana empresa|<P1>"];
-Nodo2050366575[label="<P0>|10826, Las Claves de la eficacia empresarial; un reto a los empresarios Españoles|<P1>|10827, La Fe explicada / Leo J. Trese.|<P2>"];
-Nodo930450524:P0->Nodo2050366575;
-Nodo2045336358[label="<P0>|10894, Introducción al estudio de la música|<P1>|10896, Sociología de la educación|<P2>|10902, El hombre y el dinero: (vistos a la luz de la enseñanza de la Biblia y el Evangelio) / Jacques Ellul ; versión castellana Juan Gil Albert.|<P3>"];
-Nodo930450524:P1->Nodo2045336358;
+Nodo697348231[label="<P0>|10768, Planeación estratégica aplicada|<P1>|10831, El camino y la meta|<P2>|10907, Las ventas en el mundo actual|<P3>"];
+Nodo1411767782[label="<P0>|10763, Curso de derecho constitucional|<P1>|10765, Canales de comercialización|<P2>"];
+Nodo697348231:P0->Nodo1411767782;
+Nodo322437465[label="<P0>|10770, Marketing|<P1>|10830, Relación de la vida y virtudes del beato Hno. Pedro de San José de Betancurt|<P2>"];
+Nodo697348231:P1->Nodo322437465;
+Nodo1098756006[label="<P0>|10838, Gestión de la calidad en pequeñas y medianas empresas; memoria del proyecto copatrocinado por OEA /GTZ, 1982-2000|<P1>|10839, El mapa; una guía para el mejoramiento de la calidad en la pequeña y mediana empresa, basada en el método de W. Edwards Deming|<P2>"];
+Nodo697348231:P2->Nodo1098756006;
+Nodo1833249670[label="<P0>|10910, Problemas y métodos de investigación en la historia de la filosofía|<P1>|10912, La Educación de los padres|<P2>|10916, La Odisea|<P3>"];
+Nodo697348231:P3->Nodo1833249670;
 
 }

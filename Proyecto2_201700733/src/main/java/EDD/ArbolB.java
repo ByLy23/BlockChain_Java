@@ -460,7 +460,20 @@ public Libro eliminar(Libro dato) {
              }
          }
      }
-     
+     public void buscarLibroscat(){
+         Clases_Estaticas.modelo.clear();
+         buscarLibroscat(raiz);
+     }
+     private void buscarLibroscat(Nodo raiz){
+         if(raiz!=null){
+             for (int i = 0; i < raiz.clavesTamanio; i++) {
+                     Clases_Estaticas.modelo.addElement("[**ISBN**]: "+raiz.claves[i].getISBN()+" [**TITULO**]: "+raiz.claves[i].getTitulo()+ " [**EDICION**]: "+raiz.claves[i].getEdicion()+" [**EDITORIAL**]: "+raiz.claves[i].getEditorial()+" [**AUTOR**]: "+raiz.claves[i].getAutor()+" [**CATEGORIA**]: "+raiz.claves[i].getCategoria()+" [**IDIOMA**]: "+raiz.claves[i].getIdioma()+" [**ANIO**]: "+raiz.claves[i].getAnio());          
+             }
+             for (int i = 0; i < raiz.ramasTamanio; i++) {
+                 buscarLibroscat(raiz.ramas[i]);
+             }
+         }
+     }
      private void buscarLibro(Nodo raiz, int isbn){
          if(raiz!=null){
              for (int i = 0; i < raiz.clavesTamanio; i++) {

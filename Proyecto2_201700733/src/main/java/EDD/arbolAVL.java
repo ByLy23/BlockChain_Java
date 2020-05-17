@@ -402,6 +402,18 @@ public class arbolAVL {
     public void imprimirB(String tex) throws IOException, InterruptedException{
         imprimirB(raiz, tex);
     }
+    public void mostrarB(String tex) throws IOException, InterruptedException{
+        mostrarB(raiz, tex);
+    }
+     private void mostrarB(NodoAVL raiz, String testo) throws IOException, InterruptedException{
+        if(raiz!=null){
+            if(testo.equals(raiz.getCategoria().getNombreCategoria())){
+                raiz.getArbolito().buscarLibroscat();
+            }
+            mostrarB(raiz.getIzquierdo(),testo);
+            mostrarB(raiz.getDerecho(),testo);
+        }
+    }
     private void imprimirB(NodoAVL raiz, String testo) throws IOException, InterruptedException{
         if(raiz!=null){
             if(testo.equals(raiz.getCategoria().getNombreCategoria())){
