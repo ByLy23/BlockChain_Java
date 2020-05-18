@@ -488,6 +488,7 @@ public Libro eliminar(Libro dato) {
          }
      }
       public void imprimirNodo() throws IOException, InterruptedException{
+         b.setLength(0);
             imprimirRaiz(this.raiz);
         }
       public void imprimirNiveles(){

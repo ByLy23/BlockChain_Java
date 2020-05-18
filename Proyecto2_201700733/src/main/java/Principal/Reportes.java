@@ -309,9 +309,13 @@ try{
     ImageIcon ims;
     Clases_Estaticas.arbolito.imprimirB(lista.getSelectedValue().toString());
             Thread.sleep(500);
+            imagenes.setIcon(new ImageIcon("defecto.png"));
+            imagenes.revalidate();
+            imagenes.repaint();
             ims=new ImageIcon("bTree.png");
             ims.getImage().flush();
             ims= new ImageIcon("bTree.png");
+            Thread.sleep(100);
             imagenes.setIcon(ims);
             imagenes.revalidate();
             imagenes.repaint(); 

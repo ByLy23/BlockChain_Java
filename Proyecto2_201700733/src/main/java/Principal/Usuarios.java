@@ -318,14 +318,22 @@ try{
         try {
             Usuario aux;
             aux= Clases_Estaticas.tablita.modificarDatos(carne.getText(), pass.getText());
+            if(Clases_Estaticas.user==null){
+                JOptionPane.showMessageDialog(null, "No esta registrado en la plataforma para ver esto xD");
+            }
+            else if(Integer.parseInt(carne.getText())!=Clases_Estaticas.user.getCarnet()){
+                JOptionPane.showMessageDialog(null, "No esta autorizado para ver ese usuario");
+            }else{
             if(aux!=null){
             carnet.setText(String.valueOf(aux.getCarnet()));
             nombre.setText(aux.getNombre());
             apellido.setText(aux.getApellido());
             carrera.setText(aux.getCarrera());
             password.setText(aux.getContrasenia());
+            
             }else{
                 JOptionPane.showMessageDialog(null, "No se encontro este usuario");
+            }
             }
         } catch (Exception ex) {
             Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
