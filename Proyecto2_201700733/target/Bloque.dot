@@ -1,0 +1,7 @@
+digraph bloques{
+rankdir=LR
+node[shape=record, width= 0.1, height= 0.1];NodoNulli[label="Null"];
+NodoNullf[label="Null"];
+
+
+}

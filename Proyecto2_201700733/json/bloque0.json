@@ -8,7 +8,7 @@
 	{
 	"Carnet": 1,
 "Nombre": "1",
-"Apellido": "1",
+"Apellido": "11",
 "Carrera": "1",
 "Password": "1"
 }
@@ -16,5 +16,5 @@
 }
 ],
 "PREVIUSHASH": "null",
-,"HASH":0000
+"HASH":"0000"
 }
