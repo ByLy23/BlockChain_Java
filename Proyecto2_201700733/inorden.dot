@@ -1,6 +1,6 @@
 digraph Inorden{
 rankdir=LR
 node[shape= record];
-Nodo828179378[label= "|Categoria: Biografia Libros: 3|Categoria: Consulta Libros: 12|Categoria: Drama Libros: 16|Categoria: Ensayo Libros: 12|Categoria: Informativos Libros: 19|Categoria: Literatura Libros: 9|Categoria: Lírico Libros: 13|Categoria: Revista Libros: 6|Categoria: Sagas Libros: 2|Categoria: Épico Libros: 8|"];
+Nodo143668088[label= "|Categoria:  Suspenso Libros: 0|Categoria: Biografia Libros: 3|Categoria: Consulta Libros: 12|Categoria: Drama Libros: 16|Categoria: Ensayo Libros: 11|Categoria: Informativos Libros: 18|Categoria: Literatura Libros: 9|Categoria: Lírico Libros: 13|Categoria: Revista Libros: 6|Categoria: Romance Libros: 1|Categoria: Sagas Libros: 2|Categoria: Épico Libros: 8|"];
 
 }

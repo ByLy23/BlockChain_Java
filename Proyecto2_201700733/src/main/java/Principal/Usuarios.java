@@ -275,7 +275,9 @@ this.setVisible(false);
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         int carnets= Integer.parseInt(carnet.getText());
         try {
-            Clases_Estaticas.tablita.obtenerUsuario(carnets, nombre.getText(), apellido.getText(), carrera.getText(), password.getText());    
+            Clases_Estaticas.tablita.obtenerUsuario(carnets, nombre.getText(), apellido.getText(), carrera.getText(), password.getText()); 
+           Usuario user= new Usuario(carnets, nombre.getText(), apellido.getText(), carrera.getText(), password.getText());
+            Clases_Estaticas.instrucciones.crearUsuario(user);
             JOptionPane.showMessageDialog(null, "Usuario registrado");
             limpiar();
          
@@ -290,6 +292,7 @@ try{
     int carnets= Integer.parseInt(carnet.getText());
     Usuario usuario= new Usuario(carnets, nombre.getText(), apellido.getText(), carrera.getText(), password.getText());
     Clases_Estaticas.tablita.modificarDatos(usuario);
+    Clases_Estaticas.instrucciones.editarUsuario(usuario);
     JOptionPane.showMessageDialog(null, "Datos cambiados");
     limpiar();
 }
@@ -396,9 +399,10 @@ try{
         while(usuarios.getTamanio()!=0){
             aux= usuarios.descolar();
             Clases_Estaticas.tablita.obtenerUsuario(aux.getCarnet(),aux.getNombre(),aux.getApellido(),aux.getCarrera(),aux.getContrasenia());
+            Clases_Estaticas.instrucciones.crearUsuario(aux);
         }
         JOptionPane.showMessageDialog(null, "Usuarios Agregados");
-        Clases_Estaticas.tablita.graficar();
+      //  Clases_Estaticas.tablita.graficar();
     }
     /**
      * @param args the command line arguments

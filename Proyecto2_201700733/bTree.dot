@@ -1,5 +1,11 @@
 digraph Btree{ 
   node[shape=record, width= 0.1, height= 0.1];
-Nodo1143272633[label="<P0>|10829, El creciente fértil y la Biblia|<P1>|10905, ¡España, despierta! (Lo que es el nacional-sindicalismo) por X.Y.Z.|<P2>"];
+Nodo677147449[label="<P0>|10809, Cómo educar la voluntad|<P1>|10876, Sociología de la educación|<P2>"];
+Nodo712134376[label="<P0>|10807, Educar el carácter|<P1>|10808, Educar los sentimientos|<P2>"];
+Nodo677147449:P0->Nodo712134376;
+Nodo134708771[label="<P0>|10874, Introducción a la vida política|<P1>|10875, El lenguaje y la vida humana|<P2>"];
+Nodo677147449:P1->Nodo134708771;
+Nodo843445109[label="<P0>|13550, Future libraries, future catalogues|<P1>|13551, La revalorización del art nouveau en Guatemala (un caso : la casa Fénix)|<P2>"];
+Nodo677147449:P2->Nodo843445109;
 
 }

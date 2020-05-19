@@ -392,6 +392,7 @@ public class arbolAVL {
     private void buscarNodo(NodoAVL raiz, String categoria, int carnet){
         if(raiz!=null){
             if(categoria.equals(raiz.getCategoria().getNombreCategoria()) && carnet==raiz.getCategoria().getCarnet()){
+                Clases_Estaticas.instrucciones.eliminarCategoria(raiz.getCategoria());
                 bandera=true;
                 return;
             }
@@ -484,7 +485,7 @@ public class arbolAVL {
                 PrintWriter impresion= new PrintWriter(file);
                 impresion.println(inicio);
                 file.close();
-                String comando= "dot -Tpng inorden.dot -o inorden.png";
+                String comando= "dot -Tpng inorden.dot -o inorden.png -Gcharset=latin1";
                 Runtime rt= Runtime.getRuntime();
                 rt.exec(comando);
                 Thread.sleep(500);
@@ -499,7 +500,7 @@ public class arbolAVL {
                 PrintWriter impresion1= new PrintWriter(file1);
                 impresion1.println(inicio);
                 file1.close();
-                String comando1= "dot -Tpng postorden.dot -o postorden.png";
+                String comando1= "dot -Tpng postorden.dot -o postorden.png -Gcharset=latin1";
                 Runtime rt1= Runtime.getRuntime();
                 rt1.exec(comando1);
                 Thread.sleep(500);
@@ -514,7 +515,7 @@ public class arbolAVL {
                 PrintWriter impresion11= new PrintWriter(file11);
                 impresion11.println(inicio);
                 file11.close();
-                String comando11= "dot -Tpng preorden.dot -o preorden.png";
+                String comando11= "dot -Tpng preorden.dot -o preorden.png -Gcharset=latin1";
                 Runtime rt11= Runtime.getRuntime();
                 rt11.exec(comando11);
                 Thread.sleep(500);
@@ -560,7 +561,7 @@ public class arbolAVL {
             PrintWriter impresion=new PrintWriter(file);
             impresion.println(fingrafo);
             file.close();
-            String comando="dot -Tpng avlTrees.dot -o avlTrees.png";
+            String comando="dot -Tpng avlTrees.dot -o avlTrees.png -Gcharset=latin1";
             Runtime rt= Runtime.getRuntime();
             rt.exec(comando);
             System.out.println(fingrafo);

@@ -178,7 +178,11 @@ new Reportes().setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
- //       hs.setText(convertirSHA256(has.getText())); // TODO add your handling code here:
+        try {
+            Clases_Estaticas.instrucciones.sincronizar(); //       hs.setText(convertirSHA256(has.getText())); // TODO add your handling code here:
+        } catch (Exception ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     public String convertirSHA256(String password) {

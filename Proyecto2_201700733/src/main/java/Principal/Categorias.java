@@ -165,8 +165,10 @@ if(tex.getText().equals("")){
 else{
     try {
         Clases_Estaticas.arbolito.insertar(new Categoria(tex.getText(), nuevo,Clases_Estaticas.user.getCarnet()));
+        Categoria cat= new Categoria(tex.getText(), nuevo,Clases_Estaticas.user.getCarnet());
+        Clases_Estaticas.instrucciones.crearCategoria(cat);
         actualizarLista();
-        Clases_Estaticas.arbolito.colocarGrafo();
+        //Clases_Estaticas.arbolito.colocarGrafo();
         JOptionPane.showMessageDialog(null, "Categoria Agregada");
         tex.setText("");
     } catch (Exception ex) {

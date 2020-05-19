@@ -6,6 +6,7 @@
 package Principal;
 
 import EDD.ArbolB;
+import EDD.ListaDoble;
 import EDD.ListaEnlazada;
 import EDD.arbolAVL;
 import EDD.tablaHash;
@@ -23,10 +24,12 @@ public class Clases_Estaticas {
     public static DefaultListModel modelo;
     public static ListaEnlazada<Integer> libtos;
     public static DefaultListModel cajita;
+    public static Instruccion instrucciones;
     public Clases_Estaticas(){
         arbolito= new arbolAVL();
         modelo= new DefaultListModel();
         cajita= new DefaultListModel();
         tablita= new tablaHash();
+       instrucciones= new Instruccion();
     }
 }

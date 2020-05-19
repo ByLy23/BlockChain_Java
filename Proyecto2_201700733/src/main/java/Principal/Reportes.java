@@ -114,6 +114,11 @@ public class Reportes extends javax.swing.JFrame {
         jButton7.setText("Lista Enlazada de nodos");
 
         jButton8.setText("Blockchain");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jButton9.setText("ArbolB de categorias");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -307,15 +312,15 @@ imagenes.repaint();
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
 try{
     ImageIcon ims;
-    Clases_Estaticas.arbolito.imprimirB(lista.getSelectedValue().toString());
+    Clases_Estaticas.arbolito.imprimirB(lista.getSelectedValue());
             Thread.sleep(500);
             imagenes.setIcon(new ImageIcon("defecto.png"));
             imagenes.revalidate();
             imagenes.repaint();
-            ims=new ImageIcon("bTree.png");
+            ims=new ImageIcon("bTree.jpg");
             ims.getImage().flush();
-            ims= new ImageIcon("bTree.png");
-            Thread.sleep(100);
+            ims= new ImageIcon("bTree.jpg");
+            Thread.sleep(500);
             imagenes.setIcon(ims);
             imagenes.revalidate();
             imagenes.repaint(); 
@@ -323,6 +328,26 @@ try{
     System.out.println(ex);
 }// TODO add your handling code here:
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+try{
+    ImageIcon ims;
+    Clases_Estaticas.instrucciones.graficar();
+            Thread.sleep(500);
+            imagenes.setIcon(new ImageIcon("defecto.png"));
+            imagenes.revalidate();
+            imagenes.repaint();
+            ims=new ImageIcon("Bloque.jpg");
+            ims.getImage().flush();
+            ims= new ImageIcon("Bloque.jpg");
+            Thread.sleep(500);
+            imagenes.setIcon(ims);
+            imagenes.revalidate();
+            imagenes.repaint(); 
+}catch(Exception ex){
+    System.out.println(ex);
+}        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
 private void llenarCombo(){
     listas.clear();
     Clases_Estaticas.arbolito.colocarLista();

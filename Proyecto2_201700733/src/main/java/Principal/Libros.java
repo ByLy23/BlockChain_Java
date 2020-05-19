@@ -325,7 +325,8 @@ new Menu().setVisible(true);// TODO add your handling code here:
 Libro librito= new Libro(Integer.parseInt(isbn.getText()), titulo.getText(), autor.getText(), editorial.getText(), Integer.parseInt(anio.getText()),Integer.parseInt( edicion.getText()), categoria.getText(), idioma.getText(), Clases_Estaticas.user.getCarnet());   
         try {
             Clases_Estaticas.arbolito.verificarLibro(librito);// TODO add your handling code here:
-            JOptionPane.showMessageDialog(null, "Libro Agregado");
+            Clases_Estaticas.instrucciones.crearLibro(librito);
+             JOptionPane.showMessageDialog(null, "Libro Agregado");
             limpiar();
         } catch (Exception ex) {
             Logger.getLogger(Libros.class.getName()).log(Level.SEVERE, null, ex);
@@ -426,6 +427,7 @@ try{
         while(usuarios.getTamanio()!=0){
             aux= usuarios.descolar();
             Clases_Estaticas.arbolito.verificarLibro(aux);
+            Clases_Estaticas.instrucciones.crearLibro(aux);
         }
         JOptionPane.showMessageDialog(null, "Libros Agregados");
     }

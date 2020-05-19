@@ -130,9 +130,9 @@ public class tablaHash {
                     for (int j = 0; j < guardaUsuario[i].getTamanio(); j++) {
                        b+=("Nodo"+guardaUsuario[i].obtenerElemento(j).hashCode());
                         b+=("[label=\" Nombre: "+guardaUsuario[i].obtenerElemento(j).getNombre());
-                        b+=("\nApellido:  "+guardaUsuario[i].obtenerElemento(j).getApellido());
-                        b+=("\nCarnet: "+guardaUsuario[i].obtenerElemento(j).getCarnet());
-                        b+=("\nPassWord Encriptada: "+guardaUsuario[i].obtenerElemento(j).getContrasenia());
+                        b+=("\\nApellido:  "+guardaUsuario[i].obtenerElemento(j).getApellido());
+                        b+=("\\nCarnet: "+guardaUsuario[i].obtenerElemento(j).getCarnet());
+                        b+=("\\nPassWord Encriptada: "+guardaUsuario[i].obtenerElemento(j).getContrasenia());
                         b+="\"];\n";
                         if((j+1)<guardaUsuario[i].getTamanio())
                             b+=("Nodo"+guardaUsuario[i].obtenerElemento(j).hashCode()+"->"+"Nodo"+guardaUsuario[i].obtenerElemento(j+1).hashCode()+"\n");
@@ -150,7 +150,7 @@ public class tablaHash {
             PrintWriter impresion= new PrintWriter(file);
             impresion.println(mensaje);
             file.close();
-            String comando= "dot -Tpng Hash.dot -o Hash.png";
+            String comando= "dot -Tpng Hash.dot -o Hash.png -Gcharset=latin1";
             Runtime rt= Runtime.getRuntime();
             rt.exec(comando);
             Thread.sleep(500);

@@ -1,0 +1,20 @@
+{
+	"INDEX":0,
+"TIMESTAMP": "null",
+"NONCE": 0,
+"DATA" : [null
+{
+	"CREAR_USUARIO": [
+	{
+	"Carnet": 1,
+"Nombre": "1",
+"Apellido": "1",
+"Carrera": "1",
+"Password": "1"
+}
+]
+}
+],
+"PREVIUSHASH": "null",
+,"HASH":0000
+}

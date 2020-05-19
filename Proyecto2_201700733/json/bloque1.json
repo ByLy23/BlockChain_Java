@@ -1,0 +1,23 @@
+{
+	"INDEX":1,
+"TIMESTAMP": "2020-05-18 18:59:49.843",
+"NONCE": 16617,
+"DATA" : [
+{
+	"CREAR_LIBRO": [
+	{
+	"ISBN": 1,
+"Año": "1",
+"Idioma": "1",
+"Titulo": "1",
+"Editorial": "1",
+"Autor": "1",
+"Edicion": 1,
+"Categoria": "1"
+}
+]
+}
+],
+"PREVIUSHASH": "0000",
+,"HASH":000015f714d084ab4a1a9f328873ececef0d8d7d47474e7d53cfdc69cb897284
+}

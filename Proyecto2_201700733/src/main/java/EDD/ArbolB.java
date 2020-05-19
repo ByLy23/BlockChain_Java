@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.*;
 import java.util.Comparator;
+import javax.swing.JOptionPane;
 /**
  *
  * @author byron
@@ -40,32 +41,30 @@ public class ArbolB  {
         this.maxRamasTamanio = maxClavetamanio + 1;
     }
     boolean datoEcnontrado=false;
-    public boolean buscarDato(Libro dato, Nodo raiz){
+    public void buscarDato(Libro dato, Nodo raiz){
          if(raiz!=null){
              for (int i = 0; i < raiz.clavesTamanio; i++) {
-                 if(dato==raiz.claves[i]){
+                 if(dato.getISBN()==raiz.claves[i].getISBN()){
                      datoEcnontrado=true;
-                     return false;
                  }
              }
                 for (int i = 0; i < raiz.ramasTamanio; i++) {
                  buscarDato(dato, raiz.ramas[i]);
                  }
     }
-         if(!datoEcnontrado)
-                return true;
-         else
-             return false;
     }
       public boolean insertar(Libro dato) {
         if (raiz == null) {
             raiz = new Nodo(null, maxClavetamanio, maxRamasTamanio);
             raiz.insertarClave(dato);
         } else {
-          if(!buscarDato(dato, raiz)){
-          datoEcnontrado=false;
-              return false;
-          }
+            buscarDato(dato, raiz);
+            if(datoEcnontrado){
+                JOptionPane.showMessageDialog(null, "Libro repetido");
+                return false;
+            }else{
+              // 
+            }
             Nodo nodo = raiz;
             while (nodo != null) {
                 if (nodo.numeroRamas() == 0) {
@@ -434,6 +433,7 @@ public Libro eliminar(Libro dato) {
          Libro aux= libroEliminar;
          if(aux!=null){
              eliminar(aux);
+         Clases_Estaticas.instrucciones.eliminarLibro(aux);
              return true;
          }
          else
@@ -511,7 +511,7 @@ public Libro eliminar(Libro dato) {
                  b.append("Nodo"+raiz.hashCode());
         b.append("[label=\"<P0>");
     for (int i = 0; i < raiz.clavesTamanio; i++) {
-       b.append("|"+ raiz.claves[i].getISBN()+", "+raiz.claves[i].getTitulo());
+       b.append("|"+ raiz.claves[i].getISBN()+"\\n"+raiz.claves[i].getTitulo());
        b.append("|<P"+(i+1)+">");
     }
     b.append("\"];\n");
@@ -558,7 +558,7 @@ public Libro eliminar(Libro dato) {
             PrintWriter impresion= new PrintWriter(file);
             impresion.println(mensaje);
             file.close();
-            String comando= "dot -Tpng bTree.dot -o bTree.png";
+            String comando= "dot -Tjpg bTree.dot -o bTree.jpg -Gcharset=latin1";
             Runtime rt= Runtime.getRuntime();
             rt.exec(comando);
         }

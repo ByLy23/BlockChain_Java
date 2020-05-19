@@ -1,30 +1,33 @@
-digraph "GraficaAVL"{ nodo1949331424 [label= " Biografia
+digraph "GraficaAVL"{ nodo102207740 [label= "  esa
  Altura: 0
- CantidadLibros: 3"];nodo565858558 [label= " Consulta
- Altura: 2
- CantidadLibros: 12"];nodo193529063 [label= " Drama
- Altura: 0
- CantidadLibros: 16"];nodo904726791 [label= " Ensayo
+ CantidadLibros: 0"];nodo4685215 [label= " Biografia
  Altura: 1
- CantidadLibros: 12"];nodo1121271605 [label= " Informativos
+ CantidadLibros: 3"];nodo1609114922 [label= " Consulta
+ Altura: 2
+ CantidadLibros: 12"];nodo2110342887 [label= " Drama
+ Altura: 0
+ CantidadLibros: 16"];nodo1206102482 [label= " Ensayo
+ Altura: 1
+ CantidadLibros: 12"];nodo2087952180 [label= " Informativos
  Altura: 3
- CantidadLibros: 19"];nodo832289329 [label= " Literatura
+ CantidadLibros: 18"];nodo1780823525 [label= " Literatura
  Altura: 0
- CantidadLibros: 9"];nodo1928740569 [label= " Lírico
+ CantidadLibros: 9"];nodo1575794744 [label= " Lírico
  Altura: 2
- CantidadLibros: 13"];nodo797877425 [label= " Revista
+ CantidadLibros: 13"];nodo127608686 [label= " Revista
  Altura: 0
- CantidadLibros: 6"];nodo1154026210 [label= " Sagas
+ CantidadLibros: 6"];nodo1735492246 [label= " Sagas
  Altura: 1
- CantidadLibros: 2"];nodo686779000 [label= " Épico
+ CantidadLibros: 2"];nodo616040832 [label= " Épico
  Altura: 0
- CantidadLibros: 8"]; nodo1121271605->nodo565858558
-nodo1121271605->nodo1928740569
-nodo565858558->nodo1949331424
-nodo565858558->nodo904726791
-nodo904726791->nodo193529063
-nodo1928740569->nodo832289329
-nodo1928740569->nodo1154026210
-nodo1154026210->nodo797877425
-nodo1154026210->nodo686779000
+ CantidadLibros: 8"]; nodo2087952180->nodo1609114922
+nodo2087952180->nodo1575794744
+nodo1609114922->nodo4685215
+nodo1609114922->nodo1206102482
+nodo4685215->nodo102207740
+nodo1206102482->nodo2110342887
+nodo1575794744->nodo1780823525
+nodo1575794744->nodo1735492246
+nodo1735492246->nodo127608686
+nodo1735492246->nodo616040832
  }

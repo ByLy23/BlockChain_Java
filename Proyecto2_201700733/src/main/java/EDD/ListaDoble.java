@@ -10,7 +10,7 @@ package EDD;
  * @author byron
  */
 public class ListaDoble<T> {
-    class Nodo<T>{
+    class Nodo{
         public Nodo(T dato){
             this.dato=dato;
             siguiente=anterior=null;
@@ -56,16 +56,15 @@ private boolean estaVacia(){
     
 public T obtener_at(int index)
 {
-     if(index >= 0 && index < tamanio)
+     if(index >= 0 && index <tamanio)
     {
         Nodo iterador = this.inicio;
         int x = 0;
-        do
-        {
-            if(index == x){return (T) iterador.getDato();}
+        while(iterador!=null){
+            if(index == x){return iterador.getDato();}
             iterador = iterador.getSiguiente();
             x++;
-        }while(iterador==fin);
+        }
     }
     return null;
 }
@@ -103,10 +102,9 @@ public void agregar_fin(T dato)
     }
     else
     {
-        this.fin.setSiguiente(null);
+        this.fin.setSiguiente(nuevo);
         nuevo.setAnterior(this.fin);
         nuevo.setSiguiente(null);
-        this.inicio.setAnterior(null);
         this.fin= nuevo;
         this.tamanio++;
     }
